@@ -5,9 +5,9 @@ abstract class PlatformButton {
   factory PlatformButton(TargetPlatform platform) {
     switch (platform) {
       case TargetPlatform.iOS:
-        return IosButton();
+        return _IosButton();
       default:
-        return AndroidButton();
+        return _AndroidButton();
     }
   }
 
@@ -18,7 +18,7 @@ abstract class PlatformButton {
   });
 }
 
-class IosButton implements PlatformButton {
+class _IosButton implements PlatformButton {
   @override
   Widget build({
     BuildContext context,
@@ -32,7 +32,7 @@ class IosButton implements PlatformButton {
   }
 }
 
-class AndroidButton implements PlatformButton {
+class _AndroidButton implements PlatformButton {
   @override
   Widget build({
     @required BuildContext context,
