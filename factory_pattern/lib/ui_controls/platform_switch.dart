@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 abstract class PlatformSwitch {
   factory PlatformSwitch(TargetPlatform platform) {
     switch (platform) {
-      // case TargetPlatform.iOS:
-      //   return _IosSwitch();
+      case TargetPlatform.iOS:
+        return _IosSwitch();
       default:
         return _AndroidSwitch();
     }

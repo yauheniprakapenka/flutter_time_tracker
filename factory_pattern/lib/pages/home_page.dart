@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:factory_pattern/platform_button.dart';
-import 'package:factory_pattern/platform_switch.dart';
+import 'package:factory_pattern/ui_controls/widget_factory.dart';
 
 class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
@@ -11,27 +10,25 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    TargetPlatform _currentPlatform = Theme.of(context).platform;
-
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            PlatformButton(_currentPlatform).build(
+            WidgetFactory.buildButton(
                 context: context,
                 child: Text("Button"),
                 onPressed: () {
-                  print("Button tapped");
+                  print("button tapped");
                 }),
-            PlatformSwitch(_currentPlatform).build(
-              value: _switchValue,
-              onChanged: (bool newValue) {
-                setState(() {
-                  _switchValue = newValue;
-                });
-              },
-            ),
+            WidgetFactory.buildSwitch(
+                context: context,
+                value: _switchValue,
+                onChanged: (bool newValue) {
+                  setState(() {
+                    _switchValue = newValue;
+                  });
+                }),
           ],
         ),
       ),
