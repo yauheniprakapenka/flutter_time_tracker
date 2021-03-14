@@ -33,7 +33,9 @@ class WidgetFactory {
   ///
   /// `iOS` cancelButton is grouped separately from the other actions. Default is true. Optional parameter.
   ///
-  ///![How it looks on Android and iOS](https://flutter.github.io/assets-for-api-docs/assets/widgets/icon.png)
+  /// How it looks on Android and iOS:
+  /// 
+  ///![](https://user-images.githubusercontent.com/47568606/111071008-40888c80-84e5-11eb-84f0-3ff17584fdc4.jpg)
   ///
   /// Example usage:
   ///
@@ -47,30 +49,30 @@ class WidgetFactory {
   ///       message: 'This is message',
   ///       bottomSheetButtons: [
   ///         BottomSheetButtonModel(
-  ///         buttonTitle: 'first button',
-  ///         iconData: Icons.access_alarms,
-  ///         onPressed: () {
-  ///           print('firts onPressed');
-  ///         },
-  ///       ),
-  ///       BottomSheetButtonModel(
-  ///         buttonTitle: 'second destractive button',
-  ///         iconData: Icons.phone,
-  ///         isDestructive: true,
-  ///         onPressed: () {
-  ///           print('second onPressed');
-  ///         },
-  ///       ),
-  ///       BottomSheetButtonModel(
-  ///         buttonTitle: 'third default button',
-  ///         isDefaultAction: true,
-  ///         onPressed: () {
-  ///           print('third onPressed');
-  ///         },
-  ///       ),
-  ///     ]);
-  ///   },
-  /// )
+  ///           buttonTitle: 'first button',
+  ///           iconData: Icons.access_alarms,
+  ///           onPressed: () {
+  ///             print('firts onPressed');
+  ///           },
+  ///         ),
+  ///         BottomSheetButtonModel(
+  ///           buttonTitle: 'second destractive button',
+  ///           iconData: Icons.phone,
+  ///           isDestructive: true,
+  ///           onPressed: () {
+  ///             print('second onPressed');
+  ///           },
+  ///         ),
+  ///         BottomSheetButtonModel(
+  ///           buttonTitle: 'third default button',
+  ///           isDefaultAction: true,
+  ///           onPressed: () {
+  ///             print('third onPressed');
+  ///           },
+  ///         ),
+  ///       ]);
+  ///     },
+  ///   )
   /// ```
   static void buildBottomSheet({
     @required BuildContext context,

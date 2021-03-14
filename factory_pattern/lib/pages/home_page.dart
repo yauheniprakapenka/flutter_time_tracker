@@ -17,18 +17,18 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // WidgetFactory.buildButton(
-            //     context: context,
-            //     child: Text("Platform Button"),
-            //     onPressed: () {}),
-            // WidgetFactory.buildSwitch(
-            //     context: context,
-            //     value: _switchValue,
-            //     onChanged: (bool newValue) {
-            //       setState(() {
-            //         _switchValue = newValue;
-            //       });
-            //     }),
+            WidgetFactory.buildButton(
+                context: context,
+                child: Text("Platform Button"),
+                onPressed: () {}),
+            WidgetFactory.buildSwitch(
+                context: context,
+                value: _switchValue,
+                onChanged: (bool newValue) {
+                  setState(() {
+                    _switchValue = newValue;
+                  });
+                }),
             TextButton(
               child: Text("Show platform bottom sheet"),
               onPressed: () {
