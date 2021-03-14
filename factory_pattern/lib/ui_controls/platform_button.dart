@@ -12,7 +12,6 @@ abstract class PlatformButton {
   }
 
   Widget build({
-    @required BuildContext context,
     @required Widget child,
     @required VoidCallback onPressed,
   });
@@ -21,7 +20,6 @@ abstract class PlatformButton {
 class _IosButton implements PlatformButton {
   @override
   Widget build({
-    BuildContext context,
     Widget child,
     VoidCallback onPressed,
   }) {
@@ -35,7 +33,6 @@ class _IosButton implements PlatformButton {
 class _AndroidButton implements PlatformButton {
   @override
   Widget build({
-    @required BuildContext context,
     @required Widget child,
     @required VoidCallback onPressed,
   }) {
