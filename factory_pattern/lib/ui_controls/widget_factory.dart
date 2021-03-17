@@ -34,7 +34,7 @@ class WidgetFactory {
   /// `iOS` cancelButton is grouped separately from the other actions. Default is true. Optional parameter.
   ///
   /// How it looks on Android and iOS:
-  /// 
+  ///
   ///![](https://user-images.githubusercontent.com/47568606/111071008-40888c80-84e5-11eb-84f0-3ff17584fdc4.jpg)
   ///
   /// Example usage:
@@ -76,8 +76,8 @@ class WidgetFactory {
   /// ```
   static void buildBottomSheet({
     @required BuildContext context,
-    String title,
-    String message,
+    Widget title,
+    Widget message,
     bool cancelButton = true,
     @required List<BottomSheetButtonModel> bottomSheetButtons,
   }) {

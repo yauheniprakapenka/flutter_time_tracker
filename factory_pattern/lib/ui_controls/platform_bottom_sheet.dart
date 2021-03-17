@@ -14,8 +14,8 @@ abstract class PlatformBottomSheet {
 
   void build({
     @required BuildContext context,
-    String title,
-    String message,
+    Widget title,
+    Widget message,
     bool cancelButton,
     @required List<BottomSheetButtonModel> bottomSheetButtons,
   });
@@ -25,17 +25,19 @@ class _ModalBottomSheet implements PlatformBottomSheet {
   @override
   void build({
     @required BuildContext context,
-    String title,
-    String message,
+    Widget title,
+    Widget message,
     bool cancelButton,
     @required List<BottomSheetButtonModel> bottomSheetButtons,
   }) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return Container(
-          child: Wrap(
-            children: bottomSheetButtons
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (message != null) ListTile(title: message),
+            ...bottomSheetButtons
                 .map(
                   (button) => ListTile(
                     title: Text(button.buttonTitle),
@@ -47,7 +49,7 @@ class _ModalBottomSheet implements PlatformBottomSheet {
                   ),
                 )
                 .toList(),
-          ),
+          ],
         );
       },
     );
@@ -58,8 +60,8 @@ class _CupertinoActionSheet implements PlatformBottomSheet {
   @override
   void build({
     @required BuildContext context,
-    String title,
-    String message,
+    Widget title,
+    Widget message,
     bool cancelButton,
     @required List<BottomSheetButtonModel> bottomSheetButtons,
   }) {
@@ -67,8 +69,8 @@ class _CupertinoActionSheet implements PlatformBottomSheet {
       context: context,
       builder: (BuildContext context) {
         return CupertinoActionSheet(
-          title: Text(title),
-          message: Text(message),
+          title: title,
+          message: message,
           cancelButton: cancelButton
               ? CupertinoActionSheetAction(
                   child: Text('Отмена'),

@@ -34,8 +34,8 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 WidgetFactory.buildBottomSheet(
                     context: context,
-                    title: 'This is title',
-                    message: 'This is message',
+                    title: Text('This is title'),
+                    message: Text('This is message'),
                     bottomSheetButtons: [
                       BottomSheetButtonModel(
                         buttonTitle: 'first button',
