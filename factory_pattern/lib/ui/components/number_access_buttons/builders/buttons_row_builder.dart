@@ -12,9 +12,7 @@ class ButtonsRowBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
-      children: [
-        ...buttons,
-      ],
+      children: buttons,
     );
   }
 }

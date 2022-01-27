@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../../config/sizes.dart';
 
-class NumberButton extends StatelessWidget {
+class KeyButton extends StatelessWidget {
+  final String title;
   final GestureTapCallback onPressed;
-  final String text;
 
-  const NumberButton({
+  const KeyButton({
     Key? key,
-    required this.text,
+    required this.title,
     required this.onPressed,
   }) : super(key: key);
 
@@ -28,7 +28,7 @@ class NumberButton extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            text,
+            title,
             style: const TextStyle(
               fontSize: 24,
             ),
