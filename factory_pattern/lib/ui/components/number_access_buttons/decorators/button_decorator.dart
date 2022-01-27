@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ButtonDecorator extends StatelessWidget {
   final Widget button;
 
-  ButtonDecorator({Key? key, required this.button}) : super(key: key);
+  const ButtonDecorator({Key? key, required this.button}) : super(key: key);
 
   @override
   Widget build(context) {

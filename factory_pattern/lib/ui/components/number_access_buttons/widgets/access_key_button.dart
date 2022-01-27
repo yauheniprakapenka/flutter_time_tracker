@@ -1,5 +1,6 @@
-import 'package:access_key/ui/config/sizes.dart';
 import 'package:flutter/material.dart';
+
+import '../../../config/sizes.dart';
 
 class NumberButton extends StatelessWidget {
   final GestureTapCallback onPressed;
@@ -28,7 +29,7 @@ class NumberButton extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24,
             ),
           ),

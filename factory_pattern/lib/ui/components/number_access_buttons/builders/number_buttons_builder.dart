@@ -1,6 +1,7 @@
-import 'package:access_key/ui/components/number_access_buttons/decorators/button_decorator.dart';
-import 'package:access_key/ui/components/number_access_buttons/widgets/access_key_button.dart';
 import 'package:flutter/material.dart';
+
+import '../decorators/button_decorator.dart';
+import '../widgets/access_key_button.dart';
 
 /// Example:
 ///

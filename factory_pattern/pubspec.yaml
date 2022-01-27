@@ -9,7 +9,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.3
+  
+  flutter_bloc: ^7.3.3
 
 flutter:
   uses-material-design: true
+
+dev_dependencies: 
+  dart_code_metrics: ^4.9.1
+  flutter_lints: ^1.0.4

@@ -1,9 +1,10 @@
-import 'package:access_key/ui/components/number_access_buttons/builders/buttons_row_builder.dart';
-import 'package:access_key/ui/components/number_access_buttons/decorators/button_decorator.dart';
-import 'package:access_key/ui/components/number_access_buttons/widgets/access_key_button.dart';
-import 'package:access_key/ui/components/number_access_buttons/widgets/delete_button.dart';
-import 'package:access_key/ui/components/number_access_buttons/widgets/empty_space_button.dart';
 import 'package:flutter/material.dart';
+
+import '../builders/buttons_row_builder.dart';
+import '../decorators/button_decorator.dart';
+import '../widgets/access_key_button.dart';
+import '../widgets/delete_button.dart';
+import '../widgets/empty_space_button.dart';
 
 class CustomButtonsRow extends StatelessWidget {
   const CustomButtonsRow({Key? key}) : super(key: key);
@@ -20,12 +21,12 @@ class CustomButtonsRow extends StatelessWidget {
 }
 
 final _buttons = <Widget>[
-  EmptySpaceButton(),
+  const EmptySpaceButton(),
   NumberButton(
     text: '0',
     onPressed: () {
       print('0 tapped');
     },
   ),
-  DeleteButton(),
+  const DeleteButton(),
 ];
