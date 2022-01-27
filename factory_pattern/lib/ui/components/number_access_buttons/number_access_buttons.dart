@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'builders/number_buttons_builder.dart';
-import 'composites/custom_buttons.dart';
+import '../../widgets/buttons/buttons.dart';
+import 'builders/buttons_row_builder.dart';
+import 'composites/custom_row_with_buttons.dart';
 
 class NumberAccessButtons extends StatelessWidget {
   const NumberAccessButtons({Key? key}) : super(key: key);
@@ -10,11 +11,11 @@ class NumberAccessButtons extends StatelessWidget {
   Widget build(context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
-      children: const [
-        NumberButtonsBuilder(from: 1, to: 3),
-        NumberButtonsBuilder(from: 4, to: 6),
-        NumberButtonsBuilder(from: 7, to: 9),
-        CustomButtons(),
+      children: [
+        ButtonsRowBuilder(buttons: [oneButton, twoButton, threeButton]),
+        ButtonsRowBuilder(buttons: [fourButton, fiveButton, sixButton]),
+        ButtonsRowBuilder(buttons: [sevenButton, eightButton, nineButton]),
+        const CustomRowWithButtons(),
       ],
     );
   }
