@@ -6,4 +6,6 @@ abstract class IAppColor {
   Color get onPrimary;
 
   Color get onPrimaryVariant;
+
+  Color get error;
 }

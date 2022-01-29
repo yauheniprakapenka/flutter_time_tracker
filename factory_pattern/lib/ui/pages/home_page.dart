@@ -18,17 +18,19 @@ class HomePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                TextInfo(text: 'Введите ключ доступа'),
+                SizedBox(height: 22),
                 PageIndicator(
                   indicatorCount: 4,
                   activeIndicatorCount: 2,
                 ),
                 SizedBox(height: 52),
                 NumberPanel(),
+                SizedBox(height: 36),
                 TextButton(
                   onPressed: () {},
                   child: Text(
                     'Войти по логину и паролю',
-                   
                   ),
                 )
               ],
