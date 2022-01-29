@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:passcode/ui/theme/colors/interface/i_app_color.dart';
 
 import '../../../../services/ui_service_locator.dart';
-import '../../../../theme/size/interface/i_app_size.dart';
+import '../../../../theme/sizes/interface/i_app_size.dart';
 
 class DeleteButton extends StatelessWidget {
   final GestureTapCallback onPressed;
@@ -36,11 +37,13 @@ class _DeleteIcon extends StatelessWidget {
 
   @override
   Widget build(context) {
+    final appColor = UIServiceLocator.instance.get<IAppColor>();
+
     return Stack(
       children: [
         SvgPicture.asset(
           'assets/icons/delete/rectangle.svg',
-          color: Theme.of(context).colorScheme.surface,
+          color: appColor.surface,
           width: _widthIcon,
           height: _heigthIcon,
         ),
@@ -50,7 +53,7 @@ class _DeleteIcon extends StatelessWidget {
             child: Center(
               child: SvgPicture.asset(
                 'assets/icons/delete/cross.svg',
-                color: Theme.of(context).colorScheme.onSurface,
+                color: appColor.onSurface,
                 width: _crossSize,
                 height: _crossSize,
               ),

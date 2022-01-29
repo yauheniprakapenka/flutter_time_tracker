@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../services/ui_service_locator.dart';
-import '../../../../theme/size/interface/i_app_size.dart';
+import '../../../../theme/colors/interface/i_app_color.dart';
+import '../../../../theme/sizes/interface/i_app_size.dart';
 
 class PasswordButton extends StatelessWidget {
   final int titleNumber;
@@ -15,7 +16,9 @@ class PasswordButton extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final appSize = UIServiceLocator.instance.get<IAppSize>();
+    final serviceLocator = UIServiceLocator.instance;
+    final appSize = serviceLocator.get<IAppSize>();
+    final appColor = serviceLocator.get<IAppColor>();
 
     return TextButton(
       style: ButtonStyle(
@@ -30,10 +33,10 @@ class PasswordButton extends StatelessWidget {
           ),
         ),
         backgroundColor: MaterialStateProperty.resolveWith((states) {
-          return Theme.of(context).colorScheme.surface;
+          return appColor.surface;
         }),
         foregroundColor: MaterialStateProperty.resolveWith((states) {
-          return Theme.of(context).colorScheme.onSurface;
+          return appColor.onSurface;
         }),
       ),
       onPressed: () {
