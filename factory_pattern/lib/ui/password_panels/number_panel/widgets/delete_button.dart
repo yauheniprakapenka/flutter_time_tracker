@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../services/service_locator.dart';
+import '../../../services/ui_service_locator.dart';
 import '../../../theme/size/interface/i_app_size.dart';
 
 class DeleteButton extends StatelessWidget {
@@ -11,7 +11,7 @@ class DeleteButton extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final appSize = ServiceLocator.instance.get<IAppSize>();
+    final appSize = UIServiceLocator.instance.get<IAppSize>();
     return GestureDetector(
       onTap: onPressed,
       child: Container(

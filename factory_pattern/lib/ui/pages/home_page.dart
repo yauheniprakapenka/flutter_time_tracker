@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/number_access_bloc/number_access_bloc.dart';
-import '../bloc/number_access_bloc/number_access_state.dart';
+import '../bloc/number_access_bloc/number_panel_bloc.dart';
+import '../bloc/number_access_bloc/number_panel_state.dart';
 import '../password_panels/number_panel/number_panel.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(
-      body: BlocBuilder<NumberAccessBloc, NumberAccessState>(
+      body: BlocBuilder<NumberPanelBloc, NumberPanelState>(
         builder: (context, numberState) {
           return const Center(
             child: NumberPanel(),
