@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/number_access_bloc/number_access_bloc.dart';
 import '../bloc/number_access_bloc/number_access_state.dart';
-import '../components/number_access_buttons/number_access_buttons.dart';
+import '../password_panels/number_panel/number_panel.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
       body: BlocBuilder<NumberAccessBloc, NumberAccessState>(
         builder: (context, numberState) {
           return const Center(
-            child: NumberAccessButtons(),
+            child: NumberPanel(),
           );
         },
       ),

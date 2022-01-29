@@ -1,4 +1,5 @@
-# Updated: 25.01.2022
+# Updated: 28.01.2022
+
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
@@ -249,7 +250,7 @@ dart_code_metrics:
     # - newline-before-return
     - no-boolean-literal-compare
     - no-empty-block
-    - no-equal-arguments
+    # - no-equal-arguments
     - no-equal-then-else
     # - no-magic-number
     - no-object-declaration
@@ -259,7 +260,7 @@ dart_code_metrics:
     - prefer-first
     - prefer-last
     - prefer-match-file-name
-    - prefer-trailing-comma
+    # - prefer-trailing-comma
     
     ###########
     # Flutter #
