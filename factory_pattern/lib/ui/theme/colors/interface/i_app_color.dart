@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 abstract class IAppColor {
-  Color get surface;
+  Color get primary;
 
-  Color get onSurface;
+  Color get onPrimary;
+
+  Color get onPrimaryVariant;
 }

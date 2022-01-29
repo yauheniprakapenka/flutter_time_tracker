@@ -11,9 +11,9 @@ class NumberPanel extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: const [
-        PasswordButtonBuilder(from: 1, to: 3),
-        PasswordButtonBuilder(from: 4, to: 6),
-        PasswordButtonBuilder(from: 7, to: 9),
+        PasswordButtonsBuilder(from: 1, to: 3),
+        PasswordButtonsBuilder(from: 4, to: 6),
+        PasswordButtonsBuilder(from: 7, to: 9),
         CustomButtons(),
       ],
     );

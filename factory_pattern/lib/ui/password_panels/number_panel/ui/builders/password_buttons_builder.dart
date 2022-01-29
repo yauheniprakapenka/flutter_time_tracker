@@ -7,11 +7,11 @@ import '../decorators/button_padding_decorator.dart';
 import '../widgets/password_button.dart';
 import 'buttons_row_builder.dart';
 
-class PasswordButtonBuilder extends StatelessWidget {
+class PasswordButtonsBuilder extends StatelessWidget {
   final int from;
   final int to;
 
-  const PasswordButtonBuilder({
+  const PasswordButtonsBuilder({
     Key? key,
     required this.from,
     required this.to,

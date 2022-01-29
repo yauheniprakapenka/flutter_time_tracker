@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:passcode/ui/theme/colors/interface/i_app_color.dart';
 
 import '../../../../services/ui_service_locator.dart';
+import '../../../../theme/colors/interface/i_app_color.dart';
 import '../../../../theme/sizes/interface/i_app_size.dart';
 
 class DeleteButton extends StatelessWidget {
@@ -29,9 +29,9 @@ class DeleteButton extends StatelessWidget {
 
 class _DeleteIcon extends StatelessWidget {
   static const _widthIcon = 46.0;
-  static const _heigthIcon = 34.0;
-  static const _crossSize = 18.0;
-  static const _leftPadding = _widthIcon - _heigthIcon;
+  static const _heightIcon = 34.0;
+  static const _crossIconSize = 18.0;
+  static const _leftPadding = _widthIcon - _heightIcon;
 
   const _DeleteIcon({Key? key}) : super(key: key);
 
@@ -43,9 +43,9 @@ class _DeleteIcon extends StatelessWidget {
       children: [
         SvgPicture.asset(
           'assets/icons/delete/rectangle.svg',
-          color: appColor.surface,
+          color: appColor.primary,
           width: _widthIcon,
-          height: _heigthIcon,
+          height: _heightIcon,
         ),
         Positioned.fill(
           child: Padding(
@@ -53,9 +53,9 @@ class _DeleteIcon extends StatelessWidget {
             child: Center(
               child: SvgPicture.asset(
                 'assets/icons/delete/cross.svg',
-                color: appColor.onSurface,
-                width: _crossSize,
-                height: _crossSize,
+                color: appColor.onPrimary,
+                width: _crossIconSize,
+                height: _crossIconSize,
               ),
             ),
           ),

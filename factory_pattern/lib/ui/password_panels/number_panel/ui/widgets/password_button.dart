@@ -33,10 +33,10 @@ class PasswordButton extends StatelessWidget {
           ),
         ),
         backgroundColor: MaterialStateProperty.resolveWith((states) {
-          return appColor.surface;
+          return appColor.primary;
         }),
         foregroundColor: MaterialStateProperty.resolveWith((states) {
-          return appColor.onSurface;
+          return appColor.onPrimary;
         }),
       ),
       onPressed: () {

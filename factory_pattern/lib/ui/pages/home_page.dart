@@ -17,8 +17,12 @@ class HomePage extends StatelessWidget {
           return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                PasswordProgressBar(),
+              children: const [
+                PageIndicator(
+                  indicatorCount: 4,
+                  activeIndicatorCount: 0,
+                ),
+                SizedBox(height: 52),
                 NumberPanel(),
               ],
             ),
