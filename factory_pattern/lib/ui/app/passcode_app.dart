@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/number_access_bloc/number_panel_bloc.dart';
 import '../pages/home_page.dart';
+import '../password_panels/bloc/number_access_bloc/number_panel_bloc.dart';
 import '../services/ui_service_locator.dart';
 import '../theme/themes/interface/i_app_theme.dart';
 
