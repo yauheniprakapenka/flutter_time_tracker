@@ -46,7 +46,8 @@ class PasswordButton extends StatelessWidget {
         child: Text(
           '$titleNumber',
           style: const TextStyle(
-            fontSize: 24,
+            fontSize: 32,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),

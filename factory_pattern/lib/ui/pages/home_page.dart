@@ -17,13 +17,20 @@ class HomePage extends StatelessWidget {
           return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 PageIndicator(
                   indicatorCount: 4,
-                  activeIndicatorCount: 0,
+                  activeIndicatorCount: 2,
                 ),
                 SizedBox(height: 52),
                 NumberPanel(),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Войти по логину и паролю',
+                   
+                  ),
+                )
               ],
             ),
           );
