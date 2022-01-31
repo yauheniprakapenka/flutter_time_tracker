@@ -18,16 +18,14 @@ class PageIndicator extends StatelessWidget {
   Widget build(context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ...List.generate(indicatorLength, (index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 13.0),
-            child: _Indicator(
-              isActive: activeIndicatorLength < (index + 1),
-            ),
-          );
-        })
-      ],
+      children: List.generate(indicatorLength, (index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 13.0),
+          child: _Indicator(
+            isActive: activeIndicatorLength < (index + 1),
+          ),
+        );
+      }),
     );
   }
 }

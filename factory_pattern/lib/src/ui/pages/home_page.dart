@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(context) {
     final passwordLength =
+        // ignore: avoid_dynamic_calls
         ServiceLocator.instance.get<IPasswordPanelConfig>().passwordLength;
     return Scaffold(
       body: BlocBuilder<NumberPanelBloc, NumberPanelState>(

@@ -17,4 +17,7 @@ class ShellAppColorImpl implements IAppColor {
 
   @override
   Color get background => const Color(0xFFFFFFFF);
+
+  @override
+  Color get success => const Color(0xFF03B325);
 }
