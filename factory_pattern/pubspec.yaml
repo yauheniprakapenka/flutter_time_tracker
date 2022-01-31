@@ -14,6 +14,8 @@ dependencies:
   flutter_svg: ^1.0.3
   get_it: ^7.2.0
 
+  data: 
+    path: packages/data/
   domain:
     path: packages/domain/
 

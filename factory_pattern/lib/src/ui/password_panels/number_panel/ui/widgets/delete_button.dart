@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../app/services/service_locator.dart';
+import '../../../../../app/services/ui_service_locator.dart';
 import '../../../../../app/theme/colors/i_app_color.dart';
 import '../../../../../app/theme/sizes/i_app_size.dart';
 
@@ -12,7 +12,7 @@ class DeleteButton extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final appSize = ServiceLocator.instance.get<IAppSize>();
+    final appSize = UIServiceLocator.instance.get<IAppSize>();
     return GestureDetector(
       onTap: onPressed,
       child: Container(
@@ -37,7 +37,7 @@ class _DeleteIcon extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final appColor = ServiceLocator.instance.get<IAppColor>();
+    final appColor = UIServiceLocator.instance.get<IAppColor>();
 
     return Stack(
       children: [

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../app/services/service_locator.dart';
+import '../../app/services/ui_service_locator.dart';
 import '../../app/theme/colors/i_app_color.dart';
 
 class PageIndicator extends StatelessWidget {
@@ -37,7 +37,7 @@ class _Indicator extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final appColor = ServiceLocator.instance.get<IAppColor>();
+    final appColor = UIServiceLocator.instance.get<IAppColor>();
     return SizedBox.square(
       dimension: 12.5,
       child: DecoratedBox(

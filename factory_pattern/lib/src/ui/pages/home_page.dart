@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app/config/i_password_panel_config.dart';
-import '../../app/services/service_locator.dart';
+import '../../app/services/ui_service_locator.dart';
 import '../password_panels/number_panel/bloc/number_access_bloc/number_panel_bloc.dart';
 import '../password_panels/number_panel/bloc/number_access_bloc/number_panel_state.dart';
 import '../password_panels/number_panel/ui/number_panel.dart';
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(context) {
     final passwordLength =
         // ignore: avoid_dynamic_calls
-        ServiceLocator.instance.get<IPasswordPanelConfig>().passwordLength;
+        UIServiceLocator.instance.get<IPasswordPanelConfig>().passwordLength;
     return Scaffold(
       body: BlocBuilder<NumberPanelBloc, NumberPanelState>(
         builder: (context, state) {
