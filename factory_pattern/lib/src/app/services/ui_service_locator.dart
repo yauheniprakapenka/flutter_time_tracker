@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import '../config/i_password_panel_config.dart';
-import '../config/shell_password_config_impl.dart';
+import '../config/i_passcode_config.dart';
+import '../config/shell_passcode_config_impl.dart';
 
 import '../theme/colors/i_app_color.dart';
 import '../theme/colors/shell_app_color_impl.dart';
@@ -17,6 +17,6 @@ class UIServiceLocator {
     _getIt
       ..registerLazySingleton<IAppColor>(ShellAppColorImpl.new)
       ..registerLazySingleton<IAppSize>(ShellAppSizeImpl.new)
-      ..registerLazySingleton<IPasswordPanelConfig>(ShellPasswordConfigImpl.new);
+      ..registerLazySingleton<IPasscodeConfig>(ShellPasscodeConfigImpl.new);
   }
 }

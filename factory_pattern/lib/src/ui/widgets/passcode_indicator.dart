@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../../app/services/ui_service_locator.dart';
 import '../../app/theme/colors/i_app_color.dart';
+import '../models/passcode_result.dart';
 
-class PageIndicator extends StatelessWidget {
+class PasscodeIndicator extends StatelessWidget {
   final int indicatorLength;
   final int activeIndicatorLength;
+  final PasscodeResult passcodeResult;
 
-  const PageIndicator({
+  const PasscodeIndicator({
     Key? key,
     required this.indicatorLength,
     required this.activeIndicatorLength,
+    required this.passcodeResult,
   })  : assert(activeIndicatorLength <= indicatorLength),
         super(key: key);
 
@@ -22,28 +25,40 @@ class PageIndicator extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 13.0),
           child: _Indicator(
-            isActive: activeIndicatorLength < (index + 1),
+            color: _getColor(passcodeResult, index),
           ),
         );
       }),
     );
   }
+
+  Color _getColor(PasscodeResult passcodeResult, int index) {
+    final appColor = UIServiceLocator.instance.get<IAppColor>();
+    if (activeIndicatorLength < (index + 1)) return appColor.primary;
+    switch (passcodeResult) {
+      case PasscodeResult.input:
+        return appColor.onPrimaryVariant;
+      case PasscodeResult.success:
+        return appColor.success;
+      case PasscodeResult.fail:
+        return appColor.error;
+    }
+  }
 }
 
 class _Indicator extends StatelessWidget {
-  final bool isActive;
+  final Color color;
 
-  const _Indicator({Key? key, required this.isActive}) : super(key: key);
+  const _Indicator({Key? key, required this.color}) : super(key: key);
 
   @override
   Widget build(context) {
-    final appColor = UIServiceLocator.instance.get<IAppColor>();
     return SizedBox.square(
       dimension: 12.5,
       child: DecoratedBox(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: isActive ? appColor.primary : appColor.onPrimaryVariant,
+          color: color,
         ),
       ),
     );
