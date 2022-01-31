@@ -1,4 +1,4 @@
-import '../../../../models/passcode_result.dart';
+import 'package:passcode/passcode.dart';
 
 class NumberPanelState {
   /// Currently entered password.

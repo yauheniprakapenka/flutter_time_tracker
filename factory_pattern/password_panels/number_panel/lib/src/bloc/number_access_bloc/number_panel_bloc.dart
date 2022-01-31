@@ -2,10 +2,8 @@ import 'package:data/data.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:passcode/passcode.dart';
 
-import '../../../../../app/config/i_passcode_config.dart';
-import '../../../../../app/services/ui_service_locator.dart';
-import '../../../../models/passcode_result.dart';
 import 'events/events.dart';
 import 'number_panel_state.dart';
 

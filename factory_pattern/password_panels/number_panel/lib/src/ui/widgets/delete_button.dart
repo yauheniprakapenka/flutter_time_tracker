@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../../../../app/services/ui_service_locator.dart';
-import '../../../../../app/theme/colors/i_app_color.dart';
-import '../../../../../app/theme/sizes/i_app_size.dart';
+import 'package:passcode/passcode.dart';
 
 class DeleteButton extends StatelessWidget {
   final GestureTapCallback onPressed;

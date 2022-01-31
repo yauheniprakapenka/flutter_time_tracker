@@ -114,16 +114,16 @@ packages:
     source: hosted
     version: "2.2.1"
   data:
-    dependency: "direct main"
+    dependency: transitive
     description:
-      path: "packages/data"
+      path: "../../packages/data"
       relative: true
     source: path
     version: "1.0.0+1"
   domain:
-    dependency: "direct main"
+    dependency: transitive
     description:
-      path: "packages/domain"
+      path: "../../packages/domain"
       relative: true
     source: path
     version: "1.0.0+1"
@@ -140,7 +140,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_bloc:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
@@ -154,7 +154,7 @@ packages:
     source: hosted
     version: "1.0.4"
   flutter_svg:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_svg
       url: "https://pub.dartlang.org"
@@ -202,13 +202,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  number_panel:
-    dependency: "direct main"
-    description:
-      path: "password_panels/number_panel"
-      relative: true
-    source: path
-    version: "1.0.0+1"
   package_config:
     dependency: transitive
     description:
@@ -216,6 +209,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
+  passcode:
+    dependency: "direct main"
+    description:
+      path: "../.."
+      relative: true
+    source: path
+    version: "1.0.0+1"
   path:
     dependency: transitive
     description:

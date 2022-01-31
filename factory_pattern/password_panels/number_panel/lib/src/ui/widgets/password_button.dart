@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../app/services/ui_service_locator.dart';
-import '../../../../../app/theme/colors/i_app_color.dart';
-import '../../../../../app/theme/sizes/i_app_size.dart';
+import 'package:passcode/passcode.dart';
 
 class PasswordButton extends StatelessWidget {
   final int titleNumber;

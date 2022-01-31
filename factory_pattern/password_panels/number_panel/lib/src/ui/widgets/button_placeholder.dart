@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../app/services/ui_service_locator.dart';
-import '../../../../../app/theme/sizes/i_app_size.dart';
+import 'package:passcode/passcode.dart';
 
 class ButtonPlaceholder extends StatelessWidget {
   const ButtonPlaceholder({Key? key}) : super(key: key);

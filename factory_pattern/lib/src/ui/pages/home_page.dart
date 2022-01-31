@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:number_panel/number_panel.dart';
 
 import '../../app/config/i_passcode_config.dart';
 import '../../app/services/ui_service_locator.dart';
-import '../password_panels/number_panel/bloc/number_access_bloc/number_panel_bloc.dart';
-import '../password_panels/number_panel/bloc/number_access_bloc/number_panel_state.dart';
-import '../password_panels/number_panel/ui/number_panel.dart';
 import '../widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
