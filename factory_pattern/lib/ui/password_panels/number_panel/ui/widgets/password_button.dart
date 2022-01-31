@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../services/ui_service_locator.dart';
-import '../../../../theme/colors/interface/i_app_color.dart';
-import '../../../../theme/sizes/interface/i_app_size.dart';
+import '../../../../../app/services/service_locator.dart';
+import '../../../../../app/theme/colors/i_app_color.dart';
+import '../../../../../app/theme/sizes/i_app_size.dart';
 
 class PasswordButton extends StatelessWidget {
   final int titleNumber;
@@ -16,7 +16,7 @@ class PasswordButton extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final serviceLocator = UIServiceLocator.instance;
+    final serviceLocator = ServiceLocator.instance;
     final appSize = serviceLocator.get<IAppSize>();
     final appColor = serviceLocator.get<IAppColor>();
 

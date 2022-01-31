@@ -1,4 +1,4 @@
-import '../interface/i_app_size.dart';
+import 'i_app_size.dart';
 
 class ShellAppSizeImpl implements IAppSize {
   @override

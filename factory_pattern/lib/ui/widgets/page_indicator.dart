@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../services/ui_service_locator.dart';
-import '../theme/colors/interface/i_app_color.dart';
+import '../../app/services/service_locator.dart';
+import '../../app/theme/colors/i_app_color.dart';
 
 class PageIndicator extends StatelessWidget {
-  final int indicatorCount;
-  final int activeIndicatorCount;
+  final int indicatorLength;
+  final int activeIndicatorLength;
 
   const PageIndicator({
     Key? key,
-    required this.indicatorCount,
-    required this.activeIndicatorCount,
-  })  : assert(activeIndicatorCount <= indicatorCount),
+    required this.indicatorLength,
+    required this.activeIndicatorLength,
+  })  : assert(activeIndicatorLength <= indicatorLength),
         super(key: key);
 
   @override
@@ -19,11 +19,11 @@ class PageIndicator extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ...List.generate(indicatorCount, (index) {
+        ...List.generate(indicatorLength, (index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 13.0),
             child: _Indicator(
-              isActive: activeIndicatorCount < (index + 1),
+              isActive: activeIndicatorLength < (index + 1),
             ),
           );
         })
@@ -39,7 +39,7 @@ class _Indicator extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final appColor = UIServiceLocator.instance.get<IAppColor>();
+    final appColor = ServiceLocator.instance.get<IAppColor>();
     return SizedBox.square(
       dimension: 12.5,
       child: DecoratedBox(

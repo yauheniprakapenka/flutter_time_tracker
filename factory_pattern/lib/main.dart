@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'ui/app/passcode_app.dart';
-import 'ui/services/ui_service_locator.dart';
+import 'app/passcode_app.dart';
+import 'app/services/service_locator.dart';
 
 void main() {
-  UIServiceLocator.instance.initialize();
+  ServiceLocator.instance.initialize();
   runApp(const PasscodeApp());
 }

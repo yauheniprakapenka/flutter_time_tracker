@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../interface/i_app_color.dart';
+import 'i_app_color.dart';
 
 class ShellAppColorImpl implements IAppColor {
   @override
@@ -14,4 +14,7 @@ class ShellAppColorImpl implements IAppColor {
 
   @override
   Color get error => const Color(0xFFEE4040);
+
+  @override
+  Color get background => const Color(0xFFFFFFFF);
 }

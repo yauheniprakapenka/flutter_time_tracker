@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../services/ui_service_locator.dart';
-import '../theme/colors/interface/i_app_color.dart';
+import '../../app/services/service_locator.dart';
+import '../../app/theme/colors/i_app_color.dart';
 
 class TextInfo extends StatelessWidget {
   final String text;
@@ -15,7 +15,7 @@ class TextInfo extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final appColor = UIServiceLocator.instance.get<IAppColor>();
+    final appColor = ServiceLocator.instance.get<IAppColor>();
     return Text(
       text,
       style: TextStyle(
