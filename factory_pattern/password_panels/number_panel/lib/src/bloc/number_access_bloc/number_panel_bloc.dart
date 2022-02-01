@@ -44,6 +44,12 @@ class NumberPanelBloc extends Bloc<INumberPanelEvent, NumberPanelState> {
       yield state.copyWith(currentPasscode: _enteredCode);
       return;
     }
+
+    if (event is ClearStateEvent) {
+      _clearEnteredCode();
+      yield state.copyWith(currentPasscode: _emptyPasscode, passcodeResult: PasscodeResult.input);
+      return;
+    }
   }
 
   void _clearEnteredCode() {

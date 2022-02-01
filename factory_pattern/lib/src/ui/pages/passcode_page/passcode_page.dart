@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
-import '../../../app/config/i_passcode_config.dart';
-import '../../../app/services/ui_service_locator.dart';
+import '../../../../passcode.dart';
 import '../../widgets/widgets.dart';
 import 'decorators/animation_width_decorator.dart';
 
@@ -44,6 +43,11 @@ class _PasscodePageState extends State<PasscodePage>
     return Scaffold(
       body: BlocBuilder<NumberPanelBloc, NumberPanelState>(
         builder: (context, state) {
+          if (state.passcodeResult == PasscodeResult.fail) {
+            _playWrongPasscodeAnimation().whenComplete(() {
+              BlocProvider.of<NumberPanelBloc>(context).add(ClearStateEvent());
+            });
+          }
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -63,8 +67,7 @@ class _PasscodePageState extends State<PasscodePage>
               const SizedBox(height: 36),
               TextButton(
                 onPressed: () async {
-                  currentAnimationRepeatCounter = 0;
-                  await playWrongPasscodeAnimation();
+                  //
                 },
                 child: const Text(
                   'Войти по логину и паролю',
@@ -77,7 +80,8 @@ class _PasscodePageState extends State<PasscodePage>
     );
   }
 
-  Future<void> playWrongPasscodeAnimation() async {
+  Future<void> _playWrongPasscodeAnimation() async {
+    _resetCounter();
     try {
       while (currentAnimationRepeatCounter < maxAnimationRepeatCounter) {
         await leftWidthCntrl.forward().orCancel;
@@ -86,9 +90,12 @@ class _PasscodePageState extends State<PasscodePage>
         await rightWidthCntrl.reverse().orCancel;
         currentAnimationRepeatCounter++;
       }
-      debugPrint('Анимация завершена');
     } on TickerCanceled catch (e) {
       debugPrint('Ticker exception: $e');
     }
+  }
+
+  void _resetCounter() {
+    currentAnimationRepeatCounter = 0;
   }
 }
