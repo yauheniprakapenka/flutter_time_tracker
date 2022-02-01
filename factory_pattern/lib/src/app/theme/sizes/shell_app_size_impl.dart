@@ -2,5 +2,5 @@ import 'i_app_size.dart';
 
 class ShellAppSizeImpl implements IAppSize {
   @override
-  double get passwordButtonSize => 75.0;
+  double get passcodeButtonSize => 75.0;
 }

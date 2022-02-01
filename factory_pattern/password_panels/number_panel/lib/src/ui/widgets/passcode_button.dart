@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:passcode/passcode.dart';
 
-class PasswordButton extends StatelessWidget {
+class PasscodeButton extends StatelessWidget {
   final int titleNumber;
   final Function(int pressedNumber) onPressed;
 
-  const PasswordButton({
+  const PasscodeButton({
     Key? key,
     required this.titleNumber,
     required this.onPressed,
@@ -20,12 +20,12 @@ class PasswordButton extends StatelessWidget {
     return TextButton(
       style: ButtonStyle(
         fixedSize: MaterialStateProperty.resolveWith((states) {
-          return Size(appSize.passwordButtonSize, appSize.passwordButtonSize);
+          return Size(appSize.passcodeButtonSize, appSize.passcodeButtonSize);
         }),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              appSize.passwordButtonSize * 0.5,
+              appSize.passcodeButtonSize * 0.5,
             ),
           ),
         ),

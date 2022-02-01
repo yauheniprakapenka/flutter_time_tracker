@@ -14,8 +14,8 @@ class DeleteButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         color: Colors.transparent,
-        width: appSize.passwordButtonSize,
-        height: appSize.passwordButtonSize,
+        width: appSize.passcodeButtonSize,
+        height: appSize.passcodeButtonSize,
         child: const Center(
           child: _DeleteIcon(),
         ),

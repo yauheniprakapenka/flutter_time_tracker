@@ -39,7 +39,7 @@ class _PasscodePageState extends State<PasscodePage>
 
   @override
   Widget build(context) {
-    final passwordLength =
+    final passcodeLength =
         UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength;
     return Scaffold(
       body: BlocBuilder<NumberPanelBloc, NumberPanelState>(
@@ -53,8 +53,8 @@ class _PasscodePageState extends State<PasscodePage>
                 leftWidthCntrl: leftWidthCntrl,
                 rightWidthCntrl: rightWidthCntrl,
                 child: PasscodeIndicator(
-                  indicatorLength: passwordLength,
-                  activeIndicatorLength: state.currentPassword.length,
+                  indicatorLength: passcodeLength,
+                  activeIndicatorLength: state.currentPasscode.length,
                   passcodeResult: state.passcodeResult,
                 ),
               ),
@@ -86,7 +86,7 @@ class _PasscodePageState extends State<PasscodePage>
         await rightWidthCntrl.reverse().orCancel;
         currentAnimationRepeatCounter++;
       }
-      print('Анимация завершена');
+      debugPrint('Анимация завершена');
     } on TickerCanceled catch (e) {
       debugPrint('Ticker exception: $e');
     }

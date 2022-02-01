@@ -8,7 +8,7 @@ class ButtonPlaceholder extends StatelessWidget {
   Widget build(context) {
     final appSize = UIServiceLocator.instance.get<IAppSize>();
     return SizedBox.square(
-      dimension: appSize.passwordButtonSize,
+      dimension: appSize.passcodeButtonSize,
     );
   }
 }

@@ -4,14 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/number_access_bloc/events/events.dart';
 import '../../bloc/number_access_bloc/number_panel_bloc.dart';
 import '../decorators/button_padding_decorator.dart';
-import '../widgets/password_button.dart';
+import '../widgets/passcode_button.dart';
 import 'buttons_row_builder.dart';
 
-class PasswordButtonsBuilder extends StatelessWidget {
+class PasscodeButtonsBuilder extends StatelessWidget {
   final int from;
   final int to;
 
-  const PasswordButtonsBuilder({
+  const PasscodeButtonsBuilder({
     Key? key,
     required this.from,
     required this.to,
@@ -21,11 +21,11 @@ class PasswordButtonsBuilder extends StatelessWidget {
   Widget build(context) {
     return ButtonsRowBuilder(
       // TODO(eprakopenko): исправить возвращение виджета как функции.
-      buttons: buildPasswordButtons(context: context, from: from, to: to),
+      buttons: buildPasscodeButtons(context: context, from: from, to: to),
     );
   }
 
-  List<Widget> buildPasswordButtons({
+  List<Widget> buildPasscodeButtons({
     required BuildContext context,
     required int from,
     required int to,
@@ -34,11 +34,11 @@ class PasswordButtonsBuilder extends StatelessWidget {
     for (var i = from; i < to + 1; i++) {
       buttons.add(
         ButtonPaddingDecorator(
-          child: PasswordButton(
+          child: PasscodeButton(
             titleNumber: i,
             onPressed: (pressedNumber) {
               BlocProvider.of<NumberPanelBloc>(context).add(
-                PasswordButtonPressedEvent(pressedValue: '$pressedNumber'),
+                PasscodeButtonPressedEvent(pressedValue: '$pressedNumber'),
               );
             },
           ),
