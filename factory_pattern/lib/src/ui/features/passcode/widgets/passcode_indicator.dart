@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../app/services/ui_service_locator.dart';
-import '../../app/theme/colors/i_app_color.dart';
+import '../../../../app/services/ui_service_locator.dart';
+import '../../../../app/theme/colors/i_app_color.dart';
 import '../models/passcode_result.dart';
 
 class PasscodeIndicator extends StatelessWidget {

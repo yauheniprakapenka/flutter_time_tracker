@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
-import '../ui/pages/passcode_page/passcode_page.dart';
+import '../ui/features/passcode/pages/passcode_page.dart';
 import 'theme/theme_data/app_theme_data.dart';
 
 class PasscodeApp extends StatelessWidget {

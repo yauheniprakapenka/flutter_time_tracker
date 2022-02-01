@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
-import '../../../../passcode.dart';
-import '../../widgets/widgets.dart';
-import 'decorators/animation_width_decorator.dart';
+import '../../../../../passcode.dart';
+import '../decorators/animation_width_decorator.dart';
+import '../widgets/passcode_indicator.dart';
+import '../widgets/text_info.dart';
 
 class PasscodePage extends StatefulWidget {
   const PasscodePage({Key? key}) : super(key: key);
