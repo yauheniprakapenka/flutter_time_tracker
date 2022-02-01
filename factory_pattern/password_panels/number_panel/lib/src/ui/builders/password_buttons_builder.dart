@@ -20,6 +20,7 @@ class PasswordButtonsBuilder extends StatelessWidget {
   @override
   Widget build(context) {
     return ButtonsRowBuilder(
+      // TODO(eprakopenko): исправить возвращение виджета как функции.
       buttons: buildPasswordButtons(context: context, from: from, to: to),
     );
   }
@@ -37,8 +38,8 @@ class PasswordButtonsBuilder extends StatelessWidget {
             titleNumber: i,
             onPressed: (pressedNumber) {
               BlocProvider.of<NumberPanelBloc>(context).add(
-                  PasswordButtonPressedEvent(pressedValue: '$pressedNumber'),
-                );
+                PasswordButtonPressedEvent(pressedValue: '$pressedNumber'),
+              );
             },
           ),
         ),
