@@ -1,102 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
-import '../../../../../passcode.dart';
-import '../decorators/animation_width_decorator.dart';
-import '../widgets/passcode_indicator.dart';
+import '../composites/passcode_indicator_view.dart';
 import '../widgets/text_info.dart';
 
-class PasscodePage extends StatefulWidget {
+class PasscodePage extends StatelessWidget {
   const PasscodePage({Key? key}) : super(key: key);
 
   @override
-  State<PasscodePage> createState() => _PasscodePageState();
-}
-
-class _PasscodePageState extends State<PasscodePage>
-    with TickerProviderStateMixin {
-  static const duration = Duration(milliseconds: 50);
-  static const maxAnimationRepeatCounter = 2;
-  var currentAnimationRepeatCounter = 0;
-
-  late final leftWidthCntrl = AnimationController(
-    duration: duration,
-    vsync: this,
-  );
-
-  late final rightWidthCntrl = AnimationController(
-    duration: duration,
-    vsync: this,
-  );
-
-  @override
-  void dispose() {
-    leftWidthCntrl.dispose();
-    rightWidthCntrl.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(context) {
-    final passcodeLength =
-        UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength;
     return Scaffold(
-      body: BlocBuilder<NumberPanelBloc, NumberPanelState>(
-        builder: (context, state) {
-          if (state.passcodeResult == PasscodeResult.fail) {
-            _playWrongPasscodeAnimation().whenComplete(() {
-              BlocProvider.of<NumberPanelBloc>(context).add(ClearStateEvent());
-            });
-          }
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const TextInfo(text: 'Введите ключ доступа'),
-              const SizedBox(height: 22),
-              AnimationWidthDecorator(
-                leftWidthCntrl: leftWidthCntrl,
-                rightWidthCntrl: rightWidthCntrl,
-                child: PasscodeIndicator(
-                  indicatorLength: passcodeLength,
-                  activeIndicatorLength: state.currentPasscode.length,
-                  passcodeResult: state.passcodeResult,
-                ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton(
+                child: const Text('Отмена'),
+                onPressed: () {},
               ),
-              const SizedBox(height: 52),
-              const NumberPanel(),
-              const SizedBox(height: 36),
-              TextButton(
-                onPressed: () async {
-                  //
-                },
-                child: const Text(
-                  'Войти по логину и паролю',
-                ),
-              )
-            ],
-          );
-        },
+            ),
+            const SizedBox(height: 22),
+            const TextInfo(text: 'Введите ключ доступа'),
+            const SizedBox(height: 22),
+            const PasscodeIndicatorView(),
+            const SizedBox(height: 52),
+            const NumberPanel(),
+          ],
+        ),
       ),
     );
   }
+}
 
-  Future<void> _playWrongPasscodeAnimation() async {
-    _resetCounter();
-    try {
-      while (currentAnimationRepeatCounter < maxAnimationRepeatCounter) {
-        await leftWidthCntrl.forward().orCancel;
-        await leftWidthCntrl.reverse().orCancel;
-        await rightWidthCntrl.forward().orCancel;
-        await rightWidthCntrl.reverse().orCancel;
-        currentAnimationRepeatCounter++;
-      }
-    } on TickerCanceled catch (e) {
-      debugPrint('Ticker exception: $e');
-    }
-  }
+class Aaaa extends StatefulWidget {
+  const Aaaa({Key? key}) : super(key: key);
 
-  void _resetCounter() {
-    currentAnimationRepeatCounter = 0;
+  @override
+  State<Aaaa> createState() => _AaaaState();
+}
+
+class _AaaaState extends State<Aaaa> {
+  @override
+  Widget build(context) {
+    throw UnimplementedError();
   }
 }

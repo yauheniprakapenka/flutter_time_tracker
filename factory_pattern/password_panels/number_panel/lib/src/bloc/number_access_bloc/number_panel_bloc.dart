@@ -21,11 +21,11 @@ class NumberPanelBloc extends Bloc<INumberPanelEvent, NumberPanelState> {
       final _passcodeLengthLimit = UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength;
       if (enteredPasscodeLength >= _passcodeLengthLimit) {
         final _passcodeRepository = DataServiceLocator.instance.get<IPasscodeRepository>();
-        final checkPasscodeHasMatchUseCase = CheckPasscodeHasMatchUseCase(passcodeRepository: _passcodeRepository);
+        final checkPasscodeHasMatchUseCase = PasscodeHasMatchUseCase(passcodeRepository: _passcodeRepository);
         yield state.copyWith(currentPasscode: _enteredCode); // Fill all indicators
         await Future.delayed(const Duration(milliseconds: 150)); // How many times show filled all indicators
         final didPasscodeMatch = await checkPasscodeHasMatchUseCase(_enteredCode);
-        debugPrint('Did passcode has match: $didPasscodeMatch');
+        debugPrint('Passcode has match: $didPasscodeMatch');
         yield didPasscodeMatch 
           ? state.copyWith(currentPasscode: _enteredCode, passcodeResult: PasscodeResult.success)
           : state.copyWith(currentPasscode: _enteredCode, passcodeResult: PasscodeResult.fail);

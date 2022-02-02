@@ -1,3 +1,5 @@
 abstract class IPasscodeLocalDataSource {
-  Future<bool> checkPasscode(String passcode);
+  Future<bool> passcodeHasMatch(String userPasscode);
+
+  Future<bool> isPasscodeExist();
 }
