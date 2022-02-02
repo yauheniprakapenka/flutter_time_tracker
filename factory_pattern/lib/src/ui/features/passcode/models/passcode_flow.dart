@@ -1,6 +1,6 @@
 enum PasscodeFlow {
-  changeExistingPasscodeEvent,
-  createNewPasscodeEvent,
-  launchAppWithExistingPasscodeEvent,
-  getPasscodeFromStorageEvent,
+  changeExistingPasscode,
+  createNewPasscode,
+  launchAppWithExistingPasscode,
+  gettingPasscodeFromStorage,
 }
