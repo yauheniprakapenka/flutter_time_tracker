@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import '../../../../app/services/ui_service_locator.dart';
 import '../../../../app/theme/colors/i_app_color.dart';
 
-class TextInfo extends StatelessWidget {
+class TaskText extends StatelessWidget {
   final String text;
   final bool hasErrorStyle;
 
-  const TextInfo({
+  const TaskText({
     Key? key,
     required this.text,
     this.hasErrorStyle = false,

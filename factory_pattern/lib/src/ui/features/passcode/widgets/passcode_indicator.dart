@@ -38,9 +38,9 @@ class PasscodeIndicator extends StatelessWidget {
     switch (passcodeResult) {
       case PasscodeResult.passcodeEntry:
         return appColor.onPrimaryVariant;
-      case PasscodeResult.success:
+      case PasscodeResult.passcodeMatches:
         return appColor.success;
-      case PasscodeResult.fail:
+      case PasscodeResult.passcodeNotMatches:
         return appColor.error;
     }
   }

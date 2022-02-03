@@ -7,11 +7,8 @@ class AnimationWidthDecorator extends StatelessWidget {
   final AnimationController rightWidthCntrl;
   final Widget child;
 
-  late final Animation<double> _leftWidthAnimation =
-      buildWidthAnimation(leftWidthCntrl);
-
-  late final Animation<double> _rightWidthAnimation =
-      buildWidthAnimation(rightWidthCntrl);
+  late final Animation<double> _leftWidthAnimation = buildWidthAnimation(leftWidthCntrl);
+  late final Animation<double> _rightWidthAnimation = buildWidthAnimation(rightWidthCntrl);
 
   AnimationWidthDecorator({
     Key? key,

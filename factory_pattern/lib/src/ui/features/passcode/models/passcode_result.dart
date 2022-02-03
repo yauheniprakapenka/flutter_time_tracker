@@ -3,8 +3,10 @@ enum PasscodeResult {
   passcodeEntry,
 
   /// Entered passcode matches with the saved passcode.
-  success,
+  passcodeMatches,
 
   /// Entered passcode not matches with the saved passcode.
-  fail,
+  passcodeNotMatches,
 }
+
+// TODO поправить описание, что пароли совпадают с хранилищем или с изменением кода

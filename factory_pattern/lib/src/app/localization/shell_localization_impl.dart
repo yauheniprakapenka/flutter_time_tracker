@@ -15,4 +15,7 @@ class ShellLocalizationImpl implements ILocalization {
 
   @override
   String get loginWithNameAndPassword => 'Войти по логину и паролю';
+
+  @override
+  String get passcodeEnteredIncorrectly => 'Неверно введен ключ доступа';
 }

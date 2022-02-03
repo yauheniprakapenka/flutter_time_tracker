@@ -8,4 +8,6 @@ abstract class ILocalization {
   String get loginWithNameAndPassword;
 
   String get cancel;
+
+  String get passcodeEnteredIncorrectly;
 }
