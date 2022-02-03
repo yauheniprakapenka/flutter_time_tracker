@@ -13,7 +13,7 @@ dependencies:
   get_it: ^7.2.0
 
   data: 
-    path: packages/data/
+    path: packages/architecture/data/
   domain:
     path: packages/domain/
   number_panel:

@@ -116,7 +116,7 @@ packages:
   data:
     dependency: "direct main"
     description:
-      path: "packages/data"
+      path: "packages/architecture/data"
       relative: true
     source: path
     version: "1.0.0+1"
