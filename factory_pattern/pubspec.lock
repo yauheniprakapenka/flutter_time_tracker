@@ -123,7 +123,7 @@ packages:
   domain:
     dependency: "direct main"
     description:
-      path: "packages/domain"
+      path: "packages/architecture/domain"
       relative: true
     source: path
     version: "1.0.0+1"

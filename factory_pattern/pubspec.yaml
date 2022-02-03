@@ -15,7 +15,7 @@ dependencies:
   data: 
     path: packages/architecture/data/
   domain:
-    path: packages/domain/
+    path: packages/architecture/domain/
   number_panel:
     path: password_panels/number_panel/
 

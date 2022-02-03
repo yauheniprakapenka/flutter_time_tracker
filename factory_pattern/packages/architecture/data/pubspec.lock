@@ -102,7 +102,7 @@ packages:
   domain:
     dependency: "direct main"
     description:
-      path: "../../domain"
+      path: "../domain"
       relative: true
     source: path
     version: "1.0.0+1"
