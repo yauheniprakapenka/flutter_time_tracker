@@ -1,5 +1,6 @@
 enum PasscodeUseCase {
   changePasscode,
   createPasscode,
-  repeatePasscode,
+  repeatPasscode,
+  enterCurrentPasscode,
 }

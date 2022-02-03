@@ -36,7 +36,7 @@ class PasscodeIndicator extends StatelessWidget {
     final appColor = UIServiceLocator.instance.get<IAppColor>();
     if (activeIndicatorLength < (index + 1)) return appColor.primary;
     switch (passcodeResult) {
-      case PasscodeResult.passcodeEntry:
+      case PasscodeResult.passcodeEntring:
         return appColor.onPrimaryVariant;
       case PasscodeResult.passcodeMatches:
         return appColor.success;

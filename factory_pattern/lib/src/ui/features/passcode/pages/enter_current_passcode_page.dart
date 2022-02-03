@@ -9,8 +9,8 @@ import '../../../../app/localization/i_localization.dart';
 import '../widgets/task_text.dart';
 import 'composites/passcode_indicator_view_with_animation.dart';
 
-class RepeatPasscodePage extends StatelessWidget {
-  const RepeatPasscodePage({Key? key}) : super(key: key);
+class EnterCurrentPasscodePage extends StatelessWidget {
+  const EnterCurrentPasscodePage({Key? key}) : super(key: key);
 
   @override
   Widget build(context) {
@@ -43,7 +43,7 @@ class _TaskTextView extends StatelessWidget {
       final localization = UIServiceLocator.instance.get<ILocalization>();
       return passcodeState.passcodeResult == PasscodeResult.passcodeNotMatches
           ? TaskText(text: localization.passcodeEnteredIncorrectly, hasErrorStyle: true)
-          : TaskText(text: localization.repeatPasscode);
+          : TaskText(text: localization.enterCurrentPasscode);
     });
   }
 }

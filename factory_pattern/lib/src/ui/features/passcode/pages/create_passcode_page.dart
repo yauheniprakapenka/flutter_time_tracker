@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:number_panel/number_panel.dart';
 
-import '../../widgets/task_text.dart';
+import '../widgets/task_text.dart';
 import 'composites/passcode_indicator_view.dart';
 
 class CreatePasscodePage extends StatelessWidget {

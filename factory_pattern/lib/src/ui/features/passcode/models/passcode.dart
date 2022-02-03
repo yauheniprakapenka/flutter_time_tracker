@@ -1,4 +1,4 @@
 class Passcode {
   var createdPasscode = '';
-  var repeatedPasscode = '';
+  var enteredPasscode = '';
 }

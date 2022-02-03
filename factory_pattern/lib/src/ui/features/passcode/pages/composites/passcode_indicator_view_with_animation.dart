@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
-import '../../../../../passcode.dart';
-import '../../../../app/bloc/passcode_bloc/events/events.dart';
-import '../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
-import '../../../../app/bloc/passcode_bloc/passcode_state.dart';
-import '../decorators/animation_width_decorator.dart';
-import '../widgets/passcode_indicator.dart';
+import '../../../../../../passcode.dart';
+import '../../../../../app/bloc/passcode_bloc/events/events.dart';
+import '../../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
+import '../../../../../app/bloc/passcode_bloc/passcode_state.dart';
+import '../../decorators/animation_width_decorator.dart';
+import '../../widgets/passcode_indicator.dart';
 
 class PasscodeIndicatorViewWithAnimation extends StatefulWidget {
   const PasscodeIndicatorViewWithAnimation({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class _PasscodeIndicatorViewWithAnimationState extends State<PasscodeIndicatorVi
   Widget build(context) {
     return BlocConsumer<NumberPanelBloc, NumberPanelState>(
       listener: (context, numberPanelState) {
-        BlocProvider.of<PasscodeBloc>(context).add(EnterRepeatPasscodeEvent(numberPanelState.currentEnteredPasscode));
+        BlocProvider.of<PasscodeBloc>(context).add(CheckThisPasscodeWithExistEvent(numberPanelState.currentEnteredPasscode));
       },
       builder: (context, numberPanelState) {
         return BlocBuilder<PasscodeBloc, PasscodeState>(
@@ -50,7 +50,7 @@ class _PasscodeIndicatorViewWithAnimationState extends State<PasscodeIndicatorVi
               rightWidthCntrl: _rightWidthCntrl,
               child: PasscodeIndicator(
                 indicatorLength: UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength,
-                activeIndicatorLength: passcodeState.passcode.repeatedPasscode.length,
+                activeIndicatorLength: passcodeState.passcode.enteredPasscode.length,
                 passcodeResult: passcodeState.passcodeResult,
               ),
             );

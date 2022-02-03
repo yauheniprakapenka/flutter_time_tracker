@@ -5,11 +5,10 @@ import '../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
 import '../../../../app/bloc/passcode_bloc/passcode_state.dart';
 import '../models/passcode_flow.dart';
 import '../models/passcode_use_case.dart';
-import '../pages/create_passcode_page/create_passcode_page.dart';
-import '../pages/delegates/no_animation_transition_delegate.dart';
+import '../pages/create_passcode_page.dart';
+import '../pages/enter_current_passcode_page.dart';
 import '../pages/repeat_passcode_page.dart';
-
-final scenario = PasscodeFlow.createPasscode;
+import 'delegates/no_animation_transition_delegate.dart';
 
 class PasscodeFlowNavigator extends StatelessWidget {
   const PasscodeFlowNavigator({Key? key}) : super(key: key);
@@ -21,7 +20,8 @@ class PasscodeFlowNavigator extends StatelessWidget {
         return Navigator(
           transitionDelegate: NoAnimationTransitionDelegate(),
           pages: [
-            if (scenario == PasscodeFlow.createPasscode) ..._createPasscodePagesScenario(passcodeState.passcodeFlow),
+            if (passcodeState.passcodeFlow == PasscodeFlow.createPasscode) ..._createPasscodePagesFlow(passcodeState.passcodeUseCase),
+            if (passcodeState.passcodeFlow == PasscodeFlow.changePasscode) ..._changePasscodePagesFlow(passcodeState.passcodeUseCase),
           ],
           onPopPage: (route, result) {
             if (!route.didPop(result)) return false;
@@ -33,9 +33,17 @@ class PasscodeFlowNavigator extends StatelessWidget {
   }
 }
 
-List<MaterialPage> _createPasscodePagesScenario(PasscodeUseCase passcodeFlow) {
+List<MaterialPage> _createPasscodePagesFlow(PasscodeUseCase useCase) {
   return [
-    if (passcodeFlow == PasscodeUseCase.repeatePasscode) const MaterialPage(child: RepeatPasscodePage()),
-    if (passcodeFlow == PasscodeUseCase.createPasscode) const MaterialPage(child: CreatePasscodePage()),
+    if (useCase == PasscodeUseCase.repeatPasscode) const MaterialPage(child: RepeatPasscodePage()),
+    if (useCase == PasscodeUseCase.createPasscode) const MaterialPage(child: CreatePasscodePage()),
+  ];
+}
+
+List<MaterialPage> _changePasscodePagesFlow(PasscodeUseCase useCase) {
+  return [
+    if (useCase == PasscodeUseCase.enterCurrentPasscode) const MaterialPage(child: EnterCurrentPasscodePage()),
+    if (useCase == PasscodeUseCase.createPasscode) const MaterialPage(child: CreatePasscodePage()),
+    if (useCase == PasscodeUseCase.repeatPasscode) const MaterialPage(child: RepeatPasscodePage()),
   ];
 }

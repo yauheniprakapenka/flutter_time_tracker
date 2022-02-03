@@ -1,25 +1,30 @@
 import '../../../../passcode.dart';
 import '../../../ui/features/passcode/models/passcode.dart';
+import '../../../ui/features/passcode/models/passcode_flow.dart';
 import '../../../ui/features/passcode/models/passcode_use_case.dart';
 
 class PasscodeState {
-  final PasscodeUseCase passcodeFlow;
+  final PasscodeFlow passcodeFlow;
+  final PasscodeUseCase passcodeUseCase;
   final PasscodeResult passcodeResult;
   final Passcode passcode;
 
   const PasscodeState({
-    required this.passcodeResult,
     required this.passcodeFlow,
+    required this.passcodeResult,
+    required this.passcodeUseCase,
     required this.passcode,
   });
 
   PasscodeState copyWith({
-    PasscodeUseCase? passcodeFlow,
+    PasscodeFlow? passcodeFlow,
+    PasscodeUseCase? passcodeUseCase,
     PasscodeResult? passcodeResult,
     Passcode? passcode,
   }) {
     return PasscodeState(
       passcodeFlow: passcodeFlow ?? this.passcodeFlow,
+      passcodeUseCase: passcodeUseCase ?? this.passcodeUseCase,
       passcodeResult: passcodeResult ?? this.passcodeResult,
       passcode: passcode ?? this.passcode,
     );

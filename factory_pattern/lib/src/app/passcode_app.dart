@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
 import '../ui/features/passcode/navigator/passcode_flow_navigator.dart';
-import 'bloc/passcode_bloc/events/events/check_passcode_existance_event.dart';
+import 'bloc/passcode_bloc/events/events/get_passcode_from_storage_event.dart';
 import 'bloc/passcode_bloc/passcode_bloc.dart';
 import 'theme/theme_data/app_theme_data.dart';
 
@@ -14,7 +14,7 @@ class PasscodeApp extends StatelessWidget {
   Widget build(context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<PasscodeBloc>(create: (_) => PasscodeBloc()..add(CheckPasscodeExistanceEvent())),
+        BlocProvider<PasscodeBloc>(create: (_) => PasscodeBloc()..add(GetPasscodeFromStorageEvent())),
         BlocProvider<NumberPanelBloc>(create: (_) => NumberPanelBloc()),
       ],
       child: MaterialApp(
