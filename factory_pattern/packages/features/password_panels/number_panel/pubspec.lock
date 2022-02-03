@@ -116,14 +116,14 @@ packages:
   data:
     dependency: transitive
     description:
-      path: "../../packages/data"
+      path: "../../../architecture/data"
       relative: true
     source: path
     version: "1.0.0+1"
   domain:
     dependency: transitive
     description:
-      path: "../../packages/domain"
+      path: "../../../architecture/domain"
       relative: true
     source: path
     version: "1.0.0+1"
@@ -212,7 +212,7 @@ packages:
   passcode:
     dependency: "direct main"
     description:
-      path: "../.."
+      path: "../../../.."
       relative: true
     source: path
     version: "1.0.0+1"

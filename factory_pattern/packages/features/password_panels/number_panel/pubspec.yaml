@@ -15,12 +15,12 @@ dependencies:
   get_it: ^7.2.0
 
   passcode:
-    path: ../../
+    path: ../../../../
 
 flutter:
   uses-material-design: true
   assets:
-    - ../../assets/icons/delete/
+    - ../../../../assets/icons/delete/
 
 dev_dependencies: 
   dart_code_metrics: ^4.9.1

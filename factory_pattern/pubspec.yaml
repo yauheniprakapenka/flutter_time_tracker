@@ -17,7 +17,7 @@ dependencies:
   domain:
     path: packages/architecture/domain/
   number_panel:
-    path: password_panels/number_panel/
+    path: packages/features/password_panels/number_panel/
 
 flutter:
   uses-material-design: true

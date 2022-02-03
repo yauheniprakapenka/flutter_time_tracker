@@ -205,7 +205,7 @@ packages:
   number_panel:
     dependency: "direct main"
     description:
-      path: "password_panels/number_panel"
+      path: "packages/features/password_panels/number_panel"
       relative: true
     source: path
     version: "1.0.0+1"
