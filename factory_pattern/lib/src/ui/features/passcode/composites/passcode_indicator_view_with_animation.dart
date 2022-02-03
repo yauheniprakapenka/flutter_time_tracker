@@ -17,7 +17,7 @@ class PasscodeIndicatorViewWithAnimation extends StatefulWidget {
 }
 
 class _PasscodeIndicatorViewWithAnimationState extends State<PasscodeIndicatorViewWithAnimation> with TickerProviderStateMixin {
-  static const _animationDuration = Duration(milliseconds: 50);
+  static const _animationDuration = Duration(milliseconds: 80);
   var _animationRepeatCounter = 0;
 
   late final _leftWidthCntrl = AnimationController(duration: _animationDuration, vsync: this);
