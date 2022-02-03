@@ -1,3 +1,3 @@
-import 'i_app_state_event.dart';
+// import 'i_passcode_event.dart';
 
-class LaunchAppWithExistingPasscodeEvent implements IPasscodeStateEvent {}
+// class LaunchAppWithExistingPasscodeEvent implements IPasscodeEvent {}

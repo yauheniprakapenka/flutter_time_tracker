@@ -8,7 +8,6 @@ class SecureStoragePasscodeLocalDataSource implements IPasscodeLocalDataSource {
 
   @override
   Future<bool> isPasscodeExist() async {
-    await Future.delayed(const Duration(seconds: 1));
     return false;
   }
 }

@@ -1,16 +1,27 @@
-import '../../../ui/features/passcode/models/passcode.dart';
-import '../../../ui/features/passcode/models/passcode_flow.dart';
+import '../../../../passcode.dart';
+// import '../../../ui/features/passcode/models/passcode_flow.dart';
 
 class PasscodeState {
-  final PasscodeFlow passcodeFlow;
-  final Passcode passcode;
+  // final PasscodeFlow passcodeFlow;
+  final PasscodeResult passcodeResult;
+  final String currentEnteredPasscode;
 
-  const PasscodeState({required this.passcode, required this.passcodeFlow});
+  const PasscodeState({
+    required this.passcodeResult,
+    // required this.passcodeFlow,
+    this.currentEnteredPasscode = '',
+  });
 
-  PasscodeState copyWith({PasscodeFlow? passcodeFlow, Passcode? passcode}) {
+  PasscodeState copyWith({
+    // PasscodeFlow? passcodeFlow,
+    PasscodeResult? passcodeResult,
+    String? currentEnteredPasscode,
+  }) {
     return PasscodeState(
-      passcodeFlow: passcodeFlow ?? this.passcodeFlow,
-      passcode: passcode ?? this.passcode,
+      // passcodeFlow: passcodeFlow ?? this.passcodeFlow,
+      passcodeResult: passcodeResult ?? this.passcodeResult,
+      currentEnteredPasscode:
+          currentEnteredPasscode ?? this.currentEnteredPasscode,
     );
   }
 }

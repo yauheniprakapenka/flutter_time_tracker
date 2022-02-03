@@ -3,6 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
 import '../../../../../passcode.dart';
+import '../../../../app/bloc/passcode_bloc/events/check_passcode_event.dart';
+import '../../../../app/bloc/passcode_bloc/events/events.dart';
+import '../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
+import '../../../../app/bloc/passcode_bloc/passcode_state.dart';
 import '../decorators/animation_width_decorator.dart';
 import '../widgets/passcode_indicator.dart';
 
@@ -30,23 +34,28 @@ class _PasscodeIndicatorViewState extends State<PasscodeIndicatorView> with Tick
 
   @override
   Widget build(context) {
-    final passcodeLength = UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength;
-    return BlocBuilder<NumberPanelBloc, NumberPanelState>(
-      builder: (context, state) {
-        if (state.passcodeResult == PasscodeResult.fail) {
-          _playWrongPasscodeAnimation().whenComplete(() {
-            BlocProvider.of<NumberPanelBloc>(context).add(ClearStateEvent());
-          });
-        }
-        return AnimationWidthDecorator(
-          leftWidthCntrl: leftWidthCntrl,
-          rightWidthCntrl: rightWidthCntrl,
-          child: PasscodeIndicator(
-            indicatorLength: passcodeLength,
-            activeIndicatorLength: state.currentPasscode.length,
-            passcodeResult: state.passcodeResult,
-          ),
-        );
+    return BlocConsumer<NumberPanelBloc, NumberPanelState>(listener: (context, numberPanelState) {
+      BlocProvider.of<PasscodeBloc>(context).add(CheckPasscodeEvent(numberPanelState.currentEnteredPasscode));
+    }, builder: (context, numberPanelState) {
+      return BlocBuilder<PasscodeBloc, PasscodeState>(
+        builder: (context, passcodeState) {
+          if (passcodeState.passcodeResult == PasscodeResult.fail) {
+            _playWrongPasscodeAnimation().whenComplete(() {
+              context.read<NumberPanelBloc>().add(ClearNumberPanelStateEvent());
+            });
+          }
+
+          return AnimationWidthDecorator(
+            leftWidthCntrl: leftWidthCntrl,
+            rightWidthCntrl: rightWidthCntrl,
+            child: PasscodeIndicator(
+              indicatorLength: UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength,
+              activeIndicatorLength: passcodeState.currentEnteredPasscode.length,
+              passcodeResult: passcodeState.passcodeResult,
+            ),
+          );
+        },
+      );
     });
   }
 

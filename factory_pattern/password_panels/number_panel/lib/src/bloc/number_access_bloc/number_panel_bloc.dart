@@ -1,6 +1,3 @@
-import 'package:data/data.dart';
-import 'package:domain/domain.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:passcode/passcode.dart';
 
@@ -9,50 +6,44 @@ import 'number_panel_state.dart';
 
 class NumberPanelBloc extends Bloc<INumberPanelEvent, NumberPanelState> {
   static const _emptyPasscode = '';
-  String _enteredCode = _emptyPasscode;
+  String _enteredPasscode = _emptyPasscode;
 
-  NumberPanelBloc() : super(const NumberPanelState(currentPasscode: _emptyPasscode));
+  NumberPanelBloc() : super(const NumberPanelState(currentEnteredPasscode: _emptyPasscode));
 
   @override
   Stream<NumberPanelState> mapEventToState(INumberPanelEvent event) async* {
     if (event is PasscodeButtonPressedEvent) {
-      _enteredCode += event.pressedValue;
-      final enteredPasscodeLength = _enteredCode.length;
+      _enteredPasscode += event.pressedValue;
+      final enteredPasscodeLength = _enteredPasscode.length;
       final _passcodeLengthLimit = UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength;
+      // TODO: подумать над удалением отсюда проверки, она будет в passcode bloc
       if (enteredPasscodeLength >= _passcodeLengthLimit) {
-        final _passcodeRepository = DataServiceLocator.instance.get<IPasscodeRepository>();
-        final checkPasscodeHasMatchUseCase = PasscodeHasMatchUseCase(passcodeRepository: _passcodeRepository);
-        yield state.copyWith(currentPasscode: _enteredCode); // Fill all indicators
+        yield state.copyWith(currentEnteredPasscode: _enteredPasscode); // Fill all indicators
         await Future.delayed(const Duration(milliseconds: 150)); // How many times show filled all indicators
-        final didPasscodeMatch = await checkPasscodeHasMatchUseCase(_enteredCode);
-        debugPrint('Passcode has match: $didPasscodeMatch');
-        yield didPasscodeMatch 
-          ? state.copyWith(currentPasscode: _enteredCode, passcodeResult: PasscodeResult.success)
-          : state.copyWith(currentPasscode: _enteredCode, passcodeResult: PasscodeResult.fail);
         _clearEnteredCode();
         return;
       }
-      yield state.copyWith(currentPasscode: _enteredCode);
+      yield state.copyWith(currentEnteredPasscode: _enteredPasscode);
       return;
     }
 
     if (event is DeleteButtonPressedEvent) {
-      final enteredPasscodeLength = _enteredCode.length;
+      final enteredPasscodeLength = _enteredPasscode.length;
       if (enteredPasscodeLength == 0) return;
-      final newEnteredPasscode = _enteredCode.substring(0, enteredPasscodeLength - 1);
-      _enteredCode = newEnteredPasscode;
-      yield state.copyWith(currentPasscode: _enteredCode);
+      final newEnteredPasscode = _enteredPasscode.substring(0, enteredPasscodeLength - 1);
+      _enteredPasscode = newEnteredPasscode;
+      yield state.copyWith(currentEnteredPasscode: _enteredPasscode);
       return;
     }
 
-    if (event is ClearStateEvent) {
+    if (event is ClearNumberPanelStateEvent) {
       _clearEnteredCode();
-      yield state.copyWith(currentPasscode: _emptyPasscode, passcodeResult: PasscodeResult.input);
+      yield state.copyWith(currentEnteredPasscode: _emptyPasscode);
       return;
     }
   }
 
   void _clearEnteredCode() {
-    _enteredCode = _emptyPasscode;
+    _enteredPasscode = _emptyPasscode;
   }
 }

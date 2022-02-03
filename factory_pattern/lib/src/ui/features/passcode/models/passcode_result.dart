@@ -1,6 +1,6 @@
 enum PasscodeResult {
   /// Entering passcode.
-  input,
+  passcodeEntry,
 
   /// Entered passcode matches with the saved passcode.
   success,

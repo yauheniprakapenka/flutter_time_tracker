@@ -1,3 +1,3 @@
-import 'i_app_state_event.dart';
+import 'i_passcode_event.dart';
 
-class GettingPasscodeFromStorageEvent implements IPasscodeStateEvent {}
+class GettingPasscodeFromStorageEvent implements IPasscodeEvent {}
