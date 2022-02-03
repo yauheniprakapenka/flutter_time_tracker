@@ -34,7 +34,7 @@ class _PasscodeIndicatorViewWithAnimationState extends State<PasscodeIndicatorVi
   Widget build(context) {
     return BlocConsumer<NumberPanelBloc, NumberPanelState>(
       listener: (context, numberPanelState) {
-        BlocProvider.of<PasscodeBloc>(context).add(RepeatingPasscodeEvent(numberPanelState.currentEnteredPasscode));
+        BlocProvider.of<PasscodeBloc>(context).add(EnterRepeatPasscodeEvent(numberPanelState.currentEnteredPasscode));
       },
       builder: (context, numberPanelState) {
         return BlocBuilder<PasscodeBloc, PasscodeState>(

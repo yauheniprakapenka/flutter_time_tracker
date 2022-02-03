@@ -1,4 +1,3 @@
-export 'check_passcode_event.dart';
-export 'creating_passcode_event.dart';
-export 'getting_passcode_from_storage_event.dart';
-export 'repeating_passcode_event.dart';
+export 'events/check_passcode_existance_event.dart';
+export 'events/enter_create_passcode_event.dart';
+export 'events/enter_repeat_passcode_event.dart';

@@ -1,9 +1,9 @@
 import '../../../../passcode.dart';
 import '../../../ui/features/passcode/models/passcode.dart';
-import '../../../ui/features/passcode/models/passcode_flow.dart';
+import '../../../ui/features/passcode/models/passcode_use_case.dart';
 
 class PasscodeState {
-  final PasscodeFlow passcodeFlow;
+  final PasscodeUseCase passcodeFlow;
   final PasscodeResult passcodeResult;
   final Passcode passcode;
 
@@ -14,7 +14,7 @@ class PasscodeState {
   });
 
   PasscodeState copyWith({
-    PasscodeFlow? passcodeFlow,
+    PasscodeUseCase? passcodeFlow,
     PasscodeResult? passcodeResult,
     Passcode? passcode,
   }) {

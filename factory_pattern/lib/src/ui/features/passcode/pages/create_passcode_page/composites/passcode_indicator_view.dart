@@ -15,7 +15,7 @@ class PasscodeIndicatorView extends StatelessWidget {
   Widget build(context) {
     return BlocConsumer<NumberPanelBloc, NumberPanelState>(
       listener: (context, numberPanelState) {
-        BlocProvider.of<PasscodeBloc>(context).add(CreatingPasscodeEvent(numberPanelState.currentEnteredPasscode));
+        BlocProvider.of<PasscodeBloc>(context).add(EnterCreatePasscodeEvent(numberPanelState.currentEnteredPasscode));
       },
       builder: (context, numberPanelState) {
         return BlocBuilder<PasscodeBloc, PasscodeState>(
