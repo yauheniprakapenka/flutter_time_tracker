@@ -11,23 +11,21 @@ import 'events/interface/i_passcode_event.dart';
 import 'passcode_state.dart';
 
 class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
-  final _passcode = Passcode();
+  var _passcode = const Passcode();
   final _passcodeLengthLimit = UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength;
 
   PasscodeBloc()
       : super(
-          PasscodeState(
-            passcodeFlow: PasscodeFlow.createPasscode,
-            passcodeUseCase: PasscodeUseCase.createPasscode,
-            passcodeResult: PasscodeResult.passcodeEntring,
-            passcode: Passcode(),
+          const PasscodeState(
+            passcodeFlow: PasscodeFlow.changePasscode,
+            passcodeUseCase: PasscodeUseCase.enterCurrentPasscode,
           ),
         );
 
   @override
   Stream<PasscodeState> mapEventToState(IPasscodeEvent event) async* {
     if (event is EnterNewPasscodeEvent) {
-      _passcode.createdPasscode = event.enteredPasscode;
+      _passcode = _passcode.copyWith(createdPasscode: event.enteredPasscode);
       final createdPasscodeLength = _passcode.createdPasscode.length;
       if (createdPasscodeLength == _passcodeLengthLimit) {
         yield state.copyWith(passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
@@ -42,23 +40,21 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
 
     if (event is CheckEnteredPasscodeWithExistEvent) {
       if (state.passcodeFlow == PasscodeFlow.loginWithPasscode) {
-        _passcode.tempEnteredPasscode = event.enteredPasscode;
+         _passcode = _passcode.copyWith(tempEnteredPasscode: event.enteredPasscode);
         final enteredPasscodeLength = _passcode.tempEnteredPasscode.length;
+        yield state.copyWith(passcodeUseCase: PasscodeUseCase.enterCurrentPasscode, passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
         if (enteredPasscodeLength == _passcodeLengthLimit) {
-          yield state.copyWith(passcodeResult: PasscodeResult.passcodeEntring, passcodeUseCase: PasscodeUseCase.enterCurrentPasscode, passcode: _passcode);
           await _makePauseWhenEnteringMaxPasscodeLength();
           final passcodeMatchesWithStorage = await _passcodeMatchesWithStorage(event.enteredPasscode);
           yield passcodeMatchesWithStorage
               ? state.copyWith(passcodeResult: PasscodeResult.passcodeMatches)
               : state.copyWith(passcodeResult: PasscodeResult.passcodeNotMatches);
-          return;
         }
-        yield state.copyWith(passcodeUseCase: PasscodeUseCase.enterCurrentPasscode, passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
         return;
       }
 
       if (state.passcodeFlow == PasscodeFlow.createPasscode) {
-        _passcode.tempEnteredPasscode = event.enteredPasscode;
+         _passcode = _passcode.copyWith(tempEnteredPasscode: event.enteredPasscode);
         final enteredPasscodeLength = _passcode.tempEnteredPasscode.length;
         if (enteredPasscodeLength == _passcodeLengthLimit) {
           yield state.copyWith(passcodeUseCase: PasscodeUseCase.repeatPasscode, passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
@@ -73,7 +69,7 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
       }
 
       if (state.passcodeFlow == PasscodeFlow.changePasscode) {
-        _passcode.tempEnteredPasscode = event.enteredPasscode;
+        _passcode = _passcode.copyWith(tempEnteredPasscode: event.enteredPasscode);
         final enteredPasscodeLength = _passcode.tempEnteredPasscode.length;
         if (enteredPasscodeLength == _passcodeLengthLimit) {
           yield state.copyWith(passcodeUseCase: PasscodeUseCase.enterCurrentPasscode, passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
@@ -96,7 +92,7 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
   }
 
   void _clearTempEnteredPasscode() {
-    _passcode.tempEnteredPasscode = '';
+     _passcode = _passcode.copyWith(tempEnteredPasscode: '');
   }
 
   Future<bool> _passcodeMatchesWithStorage(String enteredPasscode) async {

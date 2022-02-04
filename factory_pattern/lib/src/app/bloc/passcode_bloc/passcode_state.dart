@@ -11,9 +11,9 @@ class PasscodeState {
 
   const PasscodeState({
     required this.passcodeFlow,
-    required this.passcodeResult,
+    this.passcodeResult = PasscodeResult.passcodeEntring,
     required this.passcodeUseCase,
-    required this.passcode,
+    this.passcode = const Passcode(),
   });
 
   PasscodeState copyWith({
