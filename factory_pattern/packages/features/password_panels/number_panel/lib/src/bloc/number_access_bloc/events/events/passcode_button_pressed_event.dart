@@ -1,4 +1,4 @@
-import 'i_number_panel_event.dart';
+import '../interface/i_number_panel_event.dart';
 
 class PasscodeButtonPressedEvent implements INumberPanelEvent {
   /// The user pressed on some passcode button.

@@ -11,16 +11,10 @@ dependencies:
     sdk: flutter
   
   flutter_bloc: ^7.3.3
-  flutter_svg: ^1.0.3
   get_it: ^7.2.0
-
-  passcode:
-    path: ../../../../
 
 flutter:
   uses-material-design: true
-  assets:
-    - ../../../../assets/icons/delete/
 
 dev_dependencies: 
   dart_code_metrics: ^4.9.1

@@ -10,8 +10,6 @@ import 'events/events.dart';
 import 'events/interface/i_passcode_event.dart';
 import 'passcode_state.dart';
 
-// TODO попробовать передавать не всю модель Passcode, а только нужную строку с кодом
-
 class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
   final _passcode = Passcode();
   final _passcodeLengthLimit = UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength;
@@ -19,7 +17,7 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
   PasscodeBloc()
       : super(
           PasscodeState(
-            passcodeFlow: PasscodeFlow.changePasscode,
+            passcodeFlow: PasscodeFlow.loginWithPasscode,
             passcodeUseCase: PasscodeUseCase.enterCurrentPasscode,
             passcodeResult: PasscodeResult.passcodeEntring,
             passcode: Passcode(),

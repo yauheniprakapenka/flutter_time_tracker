@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:passcode/passcode.dart';
+import 'package:get_it/get_it.dart';
+
+import '../../config/number_panel_config.dart';
 
 class ButtonPlaceholder extends StatelessWidget {
   const ButtonPlaceholder({Key? key}) : super(key: key);
 
   @override
   Widget build(context) {
-    final appSize = UIServiceLocator.instance.get<IAppSize>();
+    final buttonSize = GetIt.I.get<NumberPanelConfig>().buttonSize;
     return SizedBox.square(
-      dimension: appSize.passcodeButtonSize,
+      dimension: buttonSize,
     );
   }
 }

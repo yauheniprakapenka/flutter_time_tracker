@@ -21,7 +21,7 @@ class PasscodeFlowNavigator extends StatelessWidget {
           pages: [
             if (state.passcodeFlow == PasscodeFlow.createPasscode) ...buildCreatePasscodeFlow(state.passcodeUseCase),
             if (state.passcodeFlow == PasscodeFlow.changePasscode) ...buildChangePasscodeFlow(state.passcodeUseCase),
-            if (state.passcodeFlow == PasscodeFlow.loginWithPasscode) ...buildLoginWithPasscode(),
+            if (state.passcodeFlow == PasscodeFlow.loginWithPasscode) ...buildLoginWithPasscodeFlow(),
           ],
           onPopPage: (route, result) {
             if (!route.didPop(result)) return false;

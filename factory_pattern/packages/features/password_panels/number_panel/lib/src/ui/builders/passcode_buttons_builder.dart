@@ -20,7 +20,6 @@ class PasscodeButtonsBuilder extends StatelessWidget {
   @override
   Widget build(context) {
     return ButtonsRowBuilder(
-      // TODO(eprakopenko): исправить возвращение виджета как функции.
       buttons: buildPasscodeButtons(context: context, from: from, to: to),
     );
   }

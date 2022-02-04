@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:passcode/passcode.dart';
+import 'package:get_it/get_it.dart';
 
-import 'events/events.dart';
-import 'number_panel_state.dart';
+import '../../../number_panel.dart';
+import '../../config/number_panel_config.dart';
 
 class NumberPanelBloc extends Bloc<INumberPanelEvent, NumberPanelState> {
   static const _emptyPasscode = '';
@@ -15,9 +15,8 @@ class NumberPanelBloc extends Bloc<INumberPanelEvent, NumberPanelState> {
     if (event is PasscodeButtonPressedEvent) {
       _enteredPasscode += event.pressedValue;
       final enteredPasscodeLength = _enteredPasscode.length;
-      final _passcodeLengthLimit = UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength;
-      // TODO: подумать над удалением отсюда проверки, она будет в passcode bloc
-      if (enteredPasscodeLength >= _passcodeLengthLimit) {
+      final passcodeLength = GetIt.instance.get<NumberPanelConfig>().passcodeLength;// UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength;
+      if (enteredPasscodeLength >= passcodeLength) {
         yield state.copyWith(currentEnteredPasscode: _enteredPasscode); // Fill all indicators
         await Future.delayed(const Duration(milliseconds: 150)); // How many times show filled all indicators
         _clearEnteredCode();

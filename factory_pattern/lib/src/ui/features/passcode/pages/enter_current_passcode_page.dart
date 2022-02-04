@@ -6,6 +6,8 @@ import '../../../../../passcode.dart';
 import '../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
 import '../../../../app/bloc/passcode_bloc/passcode_state.dart';
 import '../../../../app/localization/i_localization.dart';
+import '../../../../app/theme/colors/number_panel_color_impl.dart';
+import '../../../widgets/delete_icon.dart';
 import '../widgets/task_text.dart';
 import 'adapters/passcode_adapter_with_animation.dart';
 
@@ -17,17 +19,21 @@ class EnterCurrentPasscodePage extends StatelessWidget {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Align(
+        children: [
+          const Align(
             alignment: Alignment.centerLeft,
             child: _BackButton(),
           ),
-          SizedBox(height: 22),
-          _TaskTextView(),
-          SizedBox(height: 22),
-          PasscodeAdapterWithAnimation(),
-          SizedBox(height: 52),
-          NumberPanel(),
+          const SizedBox(height: 22),
+          const _TaskTextView(),
+          const SizedBox(height: 22),
+          const PasscodeAdapterWithAnimation(),
+          const SizedBox(height: 52),
+          NumberPanel(
+            passcodeLength: UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength,
+            deleteIcon: const DeleteIcon(),
+            colors: NumberPanelColorImpl(),
+          ),
         ],
       ),
     );

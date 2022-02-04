@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:passcode/passcode.dart';
+import 'package:get_it/get_it.dart';
+
+import '../../config/number_panel_config.dart';
+import '../../interface/i_number_panel_color.dart';
 
 class PasscodeButton extends StatelessWidget {
   final int titleNumber;
@@ -13,27 +16,26 @@ class PasscodeButton extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final serviceLocator = UIServiceLocator.instance;
-    final appSize = serviceLocator.get<IAppSize>();
-    final appColor = serviceLocator.get<IAppColor>();
+    final config = GetIt.I.get<NumberPanelConfig>();
+    final colors = GetIt.I.get<INumberPanelColor>();
 
     return TextButton(
       style: ButtonStyle(
         fixedSize: MaterialStateProperty.resolveWith((states) {
-          return Size(appSize.passcodeButtonSize, appSize.passcodeButtonSize);
+          return Size(config.buttonSize, config.buttonSize);
         }),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              appSize.passcodeButtonSize * 0.5,
+              config.buttonSize * 0.5,
             ),
           ),
         ),
         backgroundColor: MaterialStateProperty.resolveWith((states) {
-          return appColor.primary;
+          return colors.primary;
         }),
         foregroundColor: MaterialStateProperty.resolveWith((states) {
-          return appColor.onPrimary;
+          return colors.onPrimary;
         }),
       ),
       onPressed: () {
