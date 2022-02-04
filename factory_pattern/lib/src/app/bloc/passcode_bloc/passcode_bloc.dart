@@ -3,9 +3,9 @@ import 'package:domain/domain.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../passcode.dart';
-import '../../../ui/features/passcode/models/passcode.dart';
-import '../../../ui/features/passcode/models/passcode_flow.dart';
-import '../../../ui/features/passcode/models/passcode_use_case.dart';
+import '../../models/passcode.dart';
+import '../../models/passcode_flow.dart';
+import '../../models/passcode_use_case.dart';
 import 'events/events.dart';
 import 'events/interface/i_passcode_event.dart';
 import 'passcode_state.dart';

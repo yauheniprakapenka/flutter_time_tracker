@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../app/models/passcode_result.dart';
 import '../../../../app/services/ui_service_locator.dart';
 import '../../../../app/theme/colors/i_app_color.dart';
-import '../models/passcode_result.dart';
 
 class PasscodeIndicator extends StatelessWidget {
   final int indicatorLength;

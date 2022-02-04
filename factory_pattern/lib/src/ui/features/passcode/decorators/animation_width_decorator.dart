@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../builders/width_animation_builder.dart';
+import 'builders/width_animation_builder.dart';
 
 class AnimationWidthDecorator extends StatelessWidget {
   final AnimationController leftWidthCntrl;
