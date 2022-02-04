@@ -2,7 +2,7 @@ import 'i_localization.dart';
 
 class ShellLocalizationImpl implements ILocalization {
   @override
-  String get creatPasscode => 'Придумайте ключ доступа';
+  String get createPasscode => 'Придумайте ключ доступа';
 
   @override
   String get repeatPasscode => 'Повторите ключ доступа';

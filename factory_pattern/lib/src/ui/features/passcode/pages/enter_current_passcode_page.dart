@@ -12,6 +12,7 @@ class EnterCurrentPasscodePage extends StatelessWidget {
     final localization = UIServiceLocator.instance.get<ILocalization>();
     return PasscodePageBuilder(
       taskText: localization.enterCurrentPasscode,
+      passcodeAdapterWithAnimation: true,
     );
   }
 }

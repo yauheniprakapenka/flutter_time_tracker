@@ -17,7 +17,7 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
   PasscodeBloc()
       : super(
           PasscodeState(
-            passcodeFlow: PasscodeFlow.changePasscode,
+            passcodeFlow: PasscodeFlow.loginWithPasscode,
             passcodeUseCase: PasscodeUseCase.enterCurrentPasscode,
             passcodeResult: PasscodeResult.passcodeEntring,
             passcode: Passcode(),

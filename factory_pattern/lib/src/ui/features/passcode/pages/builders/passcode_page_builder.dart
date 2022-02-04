@@ -8,13 +8,26 @@ import '../../../../../app/bloc/passcode_bloc/passcode_state.dart';
 import '../../../../../app/localization/i_localization.dart';
 import '../../../../../app/theme/colors/number_panel_color_impl.dart';
 import '../../../../widgets/delete_icon.dart';
+import '../../adapters/passcode_adapter.dart';
 import '../../adapters/passcode_adapter_with_animation.dart';
 import '../../widgets/task_text.dart';
 
 class PasscodePageBuilder extends StatelessWidget {
+  /// Пример:
+  /// - Введите текущий ключ доступа
+  /// - Повторите ключ доступа
+  /// - Придумайте ключ доступа
   final String taskText;
 
-  const PasscodePageBuilder({Key? key, required this.taskText}) : super(key: key);
+  /// Если `true`, то если введенный ключ доступа не совпал с сохраненным, то воспроизведется анимация
+  /// несовпадающего ключа доступа.
+  final bool passcodeAdapterWithAnimation;
+
+  const PasscodePageBuilder({
+    Key? key,
+    required this.taskText,
+    required this.passcodeAdapterWithAnimation,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +49,7 @@ class PasscodePageBuilder extends StatelessWidget {
           const SizedBox(height: 22),
           _TaskTextView(taskText: taskText),
           const SizedBox(height: 22),
-          const PasscodeAdapterWithAnimation(),
+          passcodeAdapterWithAnimation ? const PasscodeAdapterWithAnimation() : const PasscodeAdapter(),
           const SizedBox(height: 52),
           NumberPanel(
             passcodeLength: UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength,
@@ -60,7 +73,7 @@ class _TaskTextView extends StatelessWidget {
       final localization = UIServiceLocator.instance.get<ILocalization>();
       return passcodeState.passcodeResult == PasscodeResult.passcodeNotMatches
           ? TaskText(text: localization.passcodeEnteredIncorrectly, hasErrorStyle: true)
-          : TaskText(text: localization.enterCurrentPasscode);
+          : TaskText(text: taskText);
     });
   }
 }

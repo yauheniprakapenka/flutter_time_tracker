@@ -12,6 +12,7 @@ class RepeatPasscodePage extends StatelessWidget {
     final localization = UIServiceLocator.instance.get<ILocalization>();
     return PasscodePageBuilder(
       taskText: localization.repeatPasscode,
+      passcodeAdapterWithAnimation: true,
     );
   }
 }

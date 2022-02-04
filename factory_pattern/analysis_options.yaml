@@ -1,4 +1,4 @@
-# Updated: 31.01.2022
+# Updated: 04.02.2022
 
 include: package:flutter_lints/flutter.yaml
 
@@ -155,7 +155,7 @@ linter:
     - prefer_foreach
     - prefer_function_declarations_over_variables
     - prefer_generic_function_type_aliases
-    - prefer_if_elements_to_conditional_expressions
+    # - prefer_if_elements_to_conditional_expressions
     - prefer_if_null_operators
     - prefer_initializing_formals
     - prefer_inlined_adds

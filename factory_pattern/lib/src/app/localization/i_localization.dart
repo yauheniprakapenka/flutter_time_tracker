@@ -1,5 +1,5 @@
 abstract class ILocalization {
-  String get creatPasscode;
+  String get createPasscode;
 
   String get repeatPasscode;
 
