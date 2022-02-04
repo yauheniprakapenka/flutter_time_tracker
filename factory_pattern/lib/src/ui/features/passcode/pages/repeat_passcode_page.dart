@@ -7,7 +7,7 @@ import '../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
 import '../../../../app/bloc/passcode_bloc/passcode_state.dart';
 import '../../../../app/localization/i_localization.dart';
 import '../widgets/task_text.dart';
-import 'composites/passcode_indicator_view_with_animation.dart';
+import 'adapters/passcode_adapter_with_animation.dart';
 
 class RepeatPasscodePage extends StatelessWidget {
   const RepeatPasscodePage({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class RepeatPasscodePage extends StatelessWidget {
           SizedBox(height: 22),
           _TaskTextView(),
           SizedBox(height: 22),
-          PasscodeIndicatorViewWithAnimation(),
+          PasscodeAdapterWithAnimation(),
           SizedBox(height: 52),
           NumberPanel(),
         ],

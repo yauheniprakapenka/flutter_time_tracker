@@ -8,9 +8,6 @@ class ShellLocalizationImpl implements ILocalization {
   String get repeatPasscode => 'Повторите ключ доступа';
 
   @override
-  String get enterPasscode => 'Введите ключ доступа';
-
-  @override
   String get enterCurrentPasscode => 'Введите текущий ключ доступа';
 
   @override

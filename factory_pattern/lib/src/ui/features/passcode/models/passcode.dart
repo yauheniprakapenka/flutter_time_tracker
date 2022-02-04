@@ -1,4 +1,7 @@
 class Passcode {
+  var tempEnteredPasscode = '';
   var createdPasscode = '';
-  var enteredPasscode = '';
+
+  @override
+  String toString() => 'Passcode(tempEnteredPasscode: $tempEnteredPasscode, createdPasscode: $createdPasscode)';
 }

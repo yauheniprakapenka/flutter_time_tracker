@@ -9,14 +9,14 @@ import '../../../../../app/bloc/passcode_bloc/passcode_state.dart';
 import '../../decorators/animation_width_decorator.dart';
 import '../../widgets/passcode_indicator.dart';
 
-class PasscodeIndicatorViewWithAnimation extends StatefulWidget {
-  const PasscodeIndicatorViewWithAnimation({Key? key}) : super(key: key);
+class PasscodeAdapterWithAnimation extends StatefulWidget {
+  const PasscodeAdapterWithAnimation({Key? key}) : super(key: key);
 
   @override
-  State<PasscodeIndicatorViewWithAnimation> createState() => _PasscodeIndicatorViewWithAnimationState();
+  State<PasscodeAdapterWithAnimation> createState() => _PasscodeAdapterWithAnimationState();
 }
 
-class _PasscodeIndicatorViewWithAnimationState extends State<PasscodeIndicatorViewWithAnimation> with TickerProviderStateMixin {
+class _PasscodeAdapterWithAnimationState extends State<PasscodeAdapterWithAnimation> with TickerProviderStateMixin {
   static const _animationDuration = Duration(milliseconds: 80);
   var _animationRepeatCounter = 0;
 
@@ -39,6 +39,7 @@ class _PasscodeIndicatorViewWithAnimationState extends State<PasscodeIndicatorVi
       builder: (context, numberPanelState) {
         return BlocBuilder<PasscodeBloc, PasscodeState>(
           builder: (context, passcodeState) {
+            debugPrint(passcodeState.passcode.toString());
             if (passcodeState.passcodeResult == PasscodeResult.passcodeNotMatches) {
               _makePasscodeNotMatchesAnimation().whenComplete(() {
                 context.read<NumberPanelBloc>().add(ClearNumberPanelStateEvent());
@@ -50,7 +51,7 @@ class _PasscodeIndicatorViewWithAnimationState extends State<PasscodeIndicatorVi
               rightWidthCntrl: _rightWidthCntrl,
               child: PasscodeIndicator(
                 indicatorLength: UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength,
-                activeIndicatorLength: passcodeState.passcode.enteredPasscode.length,
+                activeIndicatorLength: passcodeState.passcode.tempEnteredPasscode.length,
                 passcodeResult: passcodeState.passcodeResult,
               ),
             );

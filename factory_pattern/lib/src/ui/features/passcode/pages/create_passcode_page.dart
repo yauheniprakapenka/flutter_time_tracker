@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:number_panel/number_panel.dart';
 
 import '../widgets/task_text.dart';
-import 'composites/passcode_indicator_view.dart';
+import 'adapters/passcode_adapter.dart';
 
 class CreatePasscodePage extends StatelessWidget {
   const CreatePasscodePage({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class CreatePasscodePage extends StatelessWidget {
           const SizedBox(height: 22),
           const TaskText(text: 'Придумайте ключ доступа'),
           const SizedBox(height: 22),
-          const PasscodeIndicatorView(),
+          const PasscodeAdapter(),
           const SizedBox(height: 52),
           const NumberPanel(),
         ],

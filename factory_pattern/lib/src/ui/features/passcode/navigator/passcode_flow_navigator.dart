@@ -16,12 +16,12 @@ class PasscodeFlowNavigator extends StatelessWidget {
   @override
   Widget build(context) {
     return BlocBuilder<PasscodeBloc, PasscodeState>(
-      builder: (context, passcodeState) {
+      builder: (context, state) {
         return Navigator(
           transitionDelegate: NoAnimationTransitionDelegate(),
           pages: [
-            if (passcodeState.passcodeFlow == PasscodeFlow.createPasscode) ..._createPasscodePagesFlow(passcodeState.passcodeUseCase),
-            if (passcodeState.passcodeFlow == PasscodeFlow.changePasscode) ..._changePasscodePagesFlow(passcodeState.passcodeUseCase),
+            if (state.passcodeFlow == PasscodeFlow.createPasscode) ..._createPasscodePagesFlow(state.passcodeUseCase),
+            if (state.passcodeFlow == PasscodeFlow.changePasscode) ..._changePasscodePagesFlow(state.passcodeUseCase),
           ],
           onPopPage: (route, result) {
             if (!route.didPop(result)) return false;

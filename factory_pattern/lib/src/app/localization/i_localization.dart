@@ -3,8 +3,6 @@ abstract class ILocalization {
 
   String get repeatPasscode;
 
-  String get enterPasscode;
-
   String get enterCurrentPasscode;
 
   String get loginWithNameAndPassword;
