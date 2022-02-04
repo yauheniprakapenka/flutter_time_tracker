@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
 import '../../../../../../passcode.dart';
-import '../../../../../app/bloc/passcode_bloc/events/events/enter_created_passcode_event.dart';
+import '../../../../../app/bloc/passcode_bloc/events/events/enter_new_passcode_event.dart';
 import '../../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
 import '../../../../../app/bloc/passcode_bloc/passcode_state.dart';
 import '../../widgets/passcode_indicator.dart';
@@ -15,7 +15,7 @@ class PasscodeAdapter extends StatelessWidget {
   Widget build(context) {
     return BlocConsumer<NumberPanelBloc, NumberPanelState>(
       listener: (context, numberPanelState) {
-        BlocProvider.of<PasscodeBloc>(context).add(EnterCreatedPasscodeEvent(numberPanelState.currentEnteredPasscode));
+        BlocProvider.of<PasscodeBloc>(context).add(EnterNewPasscodeEvent(numberPanelState.currentEnteredPasscode));
       },
       builder: (context, numberPanelState) {
         return BlocBuilder<PasscodeBloc, PasscodeState>(

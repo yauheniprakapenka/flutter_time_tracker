@@ -34,7 +34,7 @@ class _PasscodeAdapterWithAnimationState extends State<PasscodeAdapterWithAnimat
   Widget build(context) {
     return BlocConsumer<NumberPanelBloc, NumberPanelState>(
       listener: (context, numberPanelState) {
-        BlocProvider.of<PasscodeBloc>(context).add(CheckThisPasscodeWithExistEvent(numberPanelState.currentEnteredPasscode));
+        BlocProvider.of<PasscodeBloc>(context).add(CheckEnteredPasscodeWithExistEvent(numberPanelState.currentEnteredPasscode));
       },
       builder: (context, numberPanelState) {
         return BlocBuilder<PasscodeBloc, PasscodeState>(

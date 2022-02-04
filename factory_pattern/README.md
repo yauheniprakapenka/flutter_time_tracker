@@ -9,7 +9,7 @@
 
 ## Сравнительная таблица Flow
 
-| create passcode           | change passcode               | launch app with existing passcode |
+| create passcode           | change passcode               | login with passcode               |
 | -----------               | -----------                   | -----------                       |
 |                           | Введите текущий ключ доступа  | Введите текущий ключ доступа      |
 | Придумайте ключ доступа   | Придумайте ключ доступа       |                                   |
@@ -21,4 +21,4 @@
 
 - change existing passcode - Отправляет на экран настроек авторизованной зоны
 
-- login to app with existing passcode - Отправяет на экран ввода пароля неавторизованной зоны  
+- login with passcode  - Отправяет на экран ввода пароля неавторизованной зоны  
