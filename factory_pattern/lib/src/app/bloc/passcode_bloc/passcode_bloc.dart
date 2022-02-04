@@ -17,8 +17,8 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
   PasscodeBloc()
       : super(
           PasscodeState(
-            passcodeFlow: PasscodeFlow.loginWithPasscode,
-            passcodeUseCase: PasscodeUseCase.enterCurrentPasscode,
+            passcodeFlow: PasscodeFlow.createPasscode,
+            passcodeUseCase: PasscodeUseCase.createPasscode,
             passcodeResult: PasscodeResult.passcodeEntring,
             passcode: Passcode(),
           ),
@@ -30,10 +30,10 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
       _passcode.createdPasscode = event.enteredPasscode;
       final createdPasscodeLength = _passcode.createdPasscode.length;
       if (createdPasscodeLength == _passcodeLengthLimit) {
-        yield state.copyWith(passcodeUseCase: PasscodeUseCase.createPasscode, passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
+        yield state.copyWith(passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
         await _makePauseWhenEnteringMaxPasscodeLength();
         _clearTempEnteredPasscode();
-        yield state.copyWith(passcodeFlow: PasscodeFlow.createPasscode, passcodeUseCase: PasscodeUseCase.repeatPasscode, passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
+        yield state.copyWith(passcodeUseCase: PasscodeUseCase.repeatPasscode, passcode: _passcode, passcodeFlow: PasscodeFlow.createPasscode);
         return;
       }
       yield state.copyWith(passcodeUseCase: PasscodeUseCase.createPasscode, passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
@@ -45,12 +45,12 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
         _passcode.tempEnteredPasscode = event.enteredPasscode;
         final enteredPasscodeLength = _passcode.tempEnteredPasscode.length;
         if (enteredPasscodeLength == _passcodeLengthLimit) {
-          yield state.copyWith(passcodeUseCase: PasscodeUseCase.enterCurrentPasscode, passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
+          yield state.copyWith(passcodeResult: PasscodeResult.passcodeEntring, passcodeUseCase: PasscodeUseCase.enterCurrentPasscode, passcode: _passcode);
           await _makePauseWhenEnteringMaxPasscodeLength();
           final passcodeMatchesWithStorage = await _passcodeMatchesWithStorage(event.enteredPasscode);
           yield passcodeMatchesWithStorage
-              ? state.copyWith(passcodeUseCase: PasscodeUseCase.enterCurrentPasscode, passcodeResult: PasscodeResult.passcodeMatches, passcode: _passcode)
-              : state.copyWith(passcodeUseCase: PasscodeUseCase.enterCurrentPasscode, passcodeResult: PasscodeResult.passcodeNotMatches, passcode: _passcode);
+              ? state.copyWith(passcodeResult: PasscodeResult.passcodeMatches)
+              : state.copyWith(passcodeResult: PasscodeResult.passcodeNotMatches);
           return;
         }
         yield state.copyWith(passcodeUseCase: PasscodeUseCase.enterCurrentPasscode, passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
