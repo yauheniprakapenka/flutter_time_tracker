@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
-import '../../../../../../passcode.dart';
-import '../../../../../app/bloc/passcode_bloc/events/events.dart';
-import '../../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
-import '../../../../../app/bloc/passcode_bloc/passcode_state.dart';
-import '../../decorators/animation_width_decorator.dart';
-import '../../widgets/passcode_indicator.dart';
+import '../../../../../passcode.dart';
+import '../../../../app/bloc/passcode_bloc/events/events.dart';
+import '../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
+import '../../../../app/bloc/passcode_bloc/passcode_state.dart';
+import '../decorators/animation_width_decorator.dart';
+import '../widgets/passcode_indicator.dart';
 
 class PasscodeAdapterWithAnimation extends StatefulWidget {
   const PasscodeAdapterWithAnimation({Key? key}) : super(key: key);
