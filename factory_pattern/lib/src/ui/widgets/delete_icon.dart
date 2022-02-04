@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../passcode.dart';
+import '../../app/services/ui_service_locator.dart';
+import '../../app/theme/colors/i_app_color.dart';
 
 class DeleteIcon extends StatelessWidget {
   static const _widthIcon = 46.0;

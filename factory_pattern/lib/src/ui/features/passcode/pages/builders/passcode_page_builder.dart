@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
-import '../../../../../../passcode.dart';
 import '../../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
 import '../../../../../app/bloc/passcode_bloc/passcode_state.dart';
+import '../../../../../app/config/i_passcode_config.dart';
 import '../../../../../app/localization/i_localization.dart';
+import '../../../../../app/models/passcode_result.dart';
+import '../../../../../app/services/ui_service_locator.dart';
 import '../../../../../app/theme/colors/number_panel_color_impl.dart';
 import '../../../../widgets/delete_icon.dart';
 import '../../adapters/passcode_adapter.dart';

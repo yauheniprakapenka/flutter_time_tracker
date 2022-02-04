@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
-import '../../../../../passcode.dart';
 import '../../../../app/bloc/passcode_bloc/events/events/enter_new_passcode_event.dart';
 import '../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
 import '../../../../app/bloc/passcode_bloc/passcode_state.dart';
+import '../../../../app/config/i_passcode_config.dart';
+import '../../../../app/services/ui_service_locator.dart';
 import '../widgets/passcode_indicator.dart';
 
 class PasscodeAdapter extends StatelessWidget {

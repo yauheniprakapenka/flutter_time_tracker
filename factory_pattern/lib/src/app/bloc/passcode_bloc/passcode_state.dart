@@ -1,6 +1,6 @@
-import '../../../../passcode.dart';
 import '../../models/passcode.dart';
 import '../../models/passcode_flow.dart';
+import '../../models/passcode_result.dart';
 import '../../models/passcode_use_case.dart';
 
 class PasscodeState {
