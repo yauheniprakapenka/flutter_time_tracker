@@ -22,9 +22,3 @@ class PasscodeFacade {
     _eventCntrl.close();
   }
 }
-
-// TODO(e): Сохранять в Flutter Storage
-// TODO(e): Передавать длину пароля
-// TODO(e): Передавать локализацию
-// TODO(e): Добавить callback для кнопки отмена
-// TODO(e): Перенести DataServiceLocator.instance.init();

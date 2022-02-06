@@ -25,7 +25,8 @@ class NewApp extends StatelessWidget {
             MaterialPageRoute(
               builder: (context) {
                 return PasscodeApp(
-                  passcodeFlow: PasscodeFlow.loginWithPasscode,
+                  passcodeFlow: PasscodeFlow.changePasscode,
+                  passcodeLength: 4,
                 );
               },
             ),

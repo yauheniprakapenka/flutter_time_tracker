@@ -51,7 +51,7 @@ class PasscodePageBuilder extends StatelessWidget {
           passcodeAdapterWithAnimation ? const PasscodeAdapterWithAnimation() : const PasscodeAdapter(),
           const SizedBox(height: 52),
           NumberPanel(
-            passcodeLength: UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength,
+            passcodeLength: UIServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
             deleteIcon: const DeleteIcon(),
             colors: NumberPanelColorImpl(),
           ),

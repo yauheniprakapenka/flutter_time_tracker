@@ -48,7 +48,7 @@ class _PasscodeAdapterWithAnimationState extends State<PasscodeAdapterWithAnimat
               leftWidthCntrl: _leftWidthCntrl,
               rightWidthCntrl: _rightWidthCntrl,
               child: PasscodeIndicator(
-                indicatorLength: UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength,
+                indicatorLength: UIServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
                 activeIndicatorLength: passcodeState.passcode.tempEnteredPasscode.length,
                 passcodeResult: passcodeState.passcodeResult,
               ),

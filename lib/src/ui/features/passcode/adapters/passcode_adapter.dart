@@ -20,7 +20,7 @@ class PasscodeAdapter extends StatelessWidget {
           builder: (context, passcodeState) {
             debugPrint(passcodeState.passcode.toString());
             return PasscodeIndicator(
-              indicatorLength: UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength,
+              indicatorLength: UIServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
               activeIndicatorLength: passcodeState.passcode.createdPasscode.length,
               passcodeResult: passcodeState.passcodeResult,
             );

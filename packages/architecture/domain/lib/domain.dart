@@ -1,6 +1,6 @@
 library domain;
 
-export 'src/config/i_passcode_config.dart';
+export 'src/config/passcode_config.dart';
 export 'src/entities/entities.dart';
 export 'src/facade/passcode_facade.dart';
 export 'src/providers/passcode_provider/bloc.dart';

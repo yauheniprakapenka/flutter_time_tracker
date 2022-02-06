@@ -2,7 +2,7 @@ import 'package:data/data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../config/i_passcode_config.dart';
+import '../../config/passcode_config.dart';
 import '../../entities/entities.dart';
 import '../../facade/extensions/description.dart';
 import '../../facade/passcode_facade.dart';
@@ -14,7 +14,7 @@ import 'passcode_state.dart';
 
 class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
   var _passcode = const Passcode();
-  final _passcodeLengthLimit = GetIt.I.get<IPasscodeConfig>().passcodeLength;
+  final _passcodeLengthLimit = GetIt.I.get<PasscodeConfig>().passcodeLength;
   final _passcodeFacade = PasscodeFacade();
 
   PasscodeBloc(PasscodeFlow passcodeFlow) : super(passcodeFlow.get()) {
