@@ -1,6 +1,6 @@
 import 'i_passcode_local_data_source.dart';
 
-class SecureStoragePasscodeLocalDataSource implements IPasscodeLocalDataSource {
+class PasscodeSecureStorageDataSource implements IPasscodeLocalDataSource {
   @override
   Future<bool> passcodeHasMatch(String userPasscode) async {
     return userPasscode == '2222' ? true : false;

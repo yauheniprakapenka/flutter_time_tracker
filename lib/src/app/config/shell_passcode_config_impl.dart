@@ -1,4 +1,5 @@
-import 'i_passcode_config.dart';
+
+import 'package:domain/domain.dart';
 
 class ShellPasscodeConfigImpl implements IPasscodeConfig {
   @override

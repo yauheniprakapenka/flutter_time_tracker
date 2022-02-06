@@ -1,10 +1,10 @@
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
 import '../ui/features/passcode/navigator/passcode_flow_navigator.dart';
-import 'bloc/passcode_bloc/passcode_bloc.dart';
-import 'theme/theme_data/app_theme_data.dart';
+import '../ui/shared/theme/theme_data/app_theme_data.dart';
 
 class PasscodeApp extends StatelessWidget {
   const PasscodeApp({Key? key}) : super(key: key);

@@ -1,4 +1,4 @@
-import '../../models/passcode_result.dart';
+import '../../entities/passcode_result.dart';
 
 extension Description on PasscodeResult {
   String getDescription() {

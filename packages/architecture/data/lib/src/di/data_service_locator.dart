@@ -1,7 +1,7 @@
 import 'package:domain/domain.dart';
 import 'package:get_it/get_it.dart';
 
-import '../data_source/local_data_source/secure_storage_passcode_local_data_source.dart';
+import '../data_source/local/passcode_secure_storage_data_source.dart';
 import '../repositories/passcode_repository_impl.dart';
 
 class DataServiceLocator {
@@ -13,7 +13,7 @@ class DataServiceLocator {
   void init() {
     _getIt.registerLazySingleton<IPasscodeRepository>(
       () => PasscodeRepositoryImpl(
-        localDataSource: SecureStoragePasscodeLocalDataSource(),
+        localDataSource: PasscodeSecureStorageDataSource(),
       ),
     );
   }

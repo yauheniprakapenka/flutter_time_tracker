@@ -1,9 +1,7 @@
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../app/bloc/passcode_bloc/passcode_bloc.dart';
-import '../../../../app/bloc/passcode_bloc/passcode_state.dart';
-import '../../../../app/models/passcode_flow.dart';
 import 'delegates/no_animation_transition_delegate.dart';
 import 'flows/change_passcode_flow.dart';
 import 'flows/create_passcode_flow.dart';

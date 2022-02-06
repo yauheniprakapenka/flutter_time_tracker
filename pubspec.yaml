@@ -13,8 +13,6 @@ dependencies:
   get_it: ^7.2.0
   flutter_svg: ^1.0.3
 
-  data: 
-    path: packages/architecture/data/
   domain:
     path: packages/architecture/domain/
   number_panel:

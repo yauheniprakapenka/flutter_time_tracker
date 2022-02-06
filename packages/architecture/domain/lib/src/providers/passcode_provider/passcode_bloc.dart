@@ -1,23 +1,20 @@
 import 'package:data/data.dart';
-import 'package:domain/domain.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../config/i_passcode_config.dart';
+import '../../entities/entities.dart';
 import '../../facade/extensions/description.dart';
-import '../../facade/models/result.dart';
 import '../../facade/passcode_facade.dart';
-import '../../models/passcode.dart';
-import '../../models/passcode_flow.dart';
-import '../../models/passcode_result.dart';
-import '../../models/passcode_use_case.dart';
-import '../../services/ui_service_locator.dart';
+import '../../repositories/i_passcode_repository.dart';
+import '../../use_cases/passcode_use_cases/passcode_matches_with_storage_use_case.dart';
 import 'events/events.dart';
 import 'events/interface/i_passcode_event.dart';
 import 'passcode_state.dart';
 
 class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
   var _passcode = const Passcode();
-  final _passcodeLengthLimit = UIServiceLocator.instance.get<IPasscodeConfig>().passcodeLength;
+  final _passcodeLengthLimit = GetIt.I.get<IPasscodeConfig>().passcodeLength;
   final _passcodeFacade = PasscodeFacade();
 
   PasscodeBloc()
@@ -32,7 +29,9 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
             // passcodeFlow: PasscodeFlow.loginWithPasscode,
             // passcodeUseCase: PasscodeUseCase.enterCurrentPasscode,
           ),
-        );
+        ) {
+          DataServiceLocator.instance.init();
+        }
 
   @override
   Stream<PasscodeState> mapEventToState(IPasscodeEvent event) async* {
@@ -73,9 +72,14 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
         yield state.copyWith(passcodeUseCase: PasscodeUseCase.repeatPasscode, passcodeResult: PasscodeResult.passcodeEntring, passcode: _passcode);
         if (enteredPasscodeLength == _passcodeLengthLimit) {
           await _makePauseWhenEnteringMaxPasscodeLength();
-          yield _passcode.createdPasscode == _passcode.tempEnteredPasscode
-              ? state.copyWith(passcodeResult: PasscodeResult.passcodeMatches)
-              : state.copyWith(passcodeResult: PasscodeResult.passcodeNotMatches);
+          if (_passcode.createdPasscode == _passcode.tempEnteredPasscode) {
+            _passcodeFacade.event.add(Result(resultType: ResultType.success, description: PasscodeResult.passcodeMatches.getDescription()));
+            yield 
+              state.copyWith(passcodeResult: PasscodeResult.passcodeMatches);
+          } else {
+            yield  state.copyWith(passcodeResult: PasscodeResult.passcodeNotMatches);
+          }
+          
         }
         return;
       }

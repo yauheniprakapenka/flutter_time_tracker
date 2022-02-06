@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/localization/i_localization.dart';
-import '../../../../app/services/ui_service_locator.dart';
+import '../../../../app/di/ui_service_locator.dart';
+import '../../../shared/localization/i_localization.dart';
 import 'builders/passcode_page_builder.dart';
 
 class EnterCurrentPasscodePage extends StatelessWidget {

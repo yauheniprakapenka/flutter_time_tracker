@@ -1,6 +1,6 @@
 import 'package:domain/domain.dart';
 
-import '../data_source/local_data_source/i_passcode_local_data_source.dart';
+import '../data_source/local/i_passcode_local_data_source.dart';
 
 class PasscodeRepositoryImpl implements IPasscodeRepository {
   final IPasscodeLocalDataSource _localDataSource;

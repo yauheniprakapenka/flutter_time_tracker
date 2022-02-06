@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 
-import 'models/result.dart';
+import '../entities/entities.dart';
 
 class PasscodeFacade {
   final _stateCntrl = StreamController<Result>();
@@ -29,4 +29,3 @@ class PasscodeFacade {
 // TODO(e): Передавать конфигурацию PasscodeState
 // TODO(e): Добавить callback для кнопки отмена
 // TODO(e): Перенести DataServiceLocator.instance.init();
-// TODO(e): Перенести Bloc

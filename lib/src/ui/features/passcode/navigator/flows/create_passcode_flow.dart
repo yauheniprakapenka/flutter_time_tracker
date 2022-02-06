@@ -1,6 +1,6 @@
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../app/models/passcode_use_case.dart';
 import '../../pages/create_passcode_page.dart';
 import '../../pages/repeat_passcode_page.dart';
 

@@ -1,7 +1,8 @@
-import '../../models/passcode.dart';
-import '../../models/passcode_flow.dart';
-import '../../models/passcode_result.dart';
-import '../../models/passcode_use_case.dart';
+
+import '../../entities/passcode.dart';
+import '../../entities/passcode_flow.dart';
+import '../../entities/passcode_result.dart';
+import '../../entities/passcode_use_case.dart';
 
 class PasscodeState {
   final PasscodeFlow passcodeFlow;
