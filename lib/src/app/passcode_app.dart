@@ -7,13 +7,19 @@ import '../ui/features/passcode/navigator/passcode_flow_navigator.dart';
 import '../ui/shared/theme/theme_data/app_theme_data.dart';
 
 class PasscodeApp extends StatelessWidget {
-  const PasscodeApp({Key? key}) : super(key: key);
+  final PasscodeFlow _passcodeFlow;
+
+  const PasscodeApp({
+    Key? key,
+    required PasscodeFlow passcodeFlow,
+  })  : _passcodeFlow = passcodeFlow,
+        super(key: key);
 
   @override
   Widget build(context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<PasscodeBloc>(create: (_) => PasscodeBloc()),
+        BlocProvider<PasscodeBloc>(create: (_) => PasscodeBloc(_passcodeFlow)),
         BlocProvider<NumberPanelBloc>(create: (_) => NumberPanelBloc()),
       ],
       child: MaterialApp(

@@ -13,5 +13,5 @@ dependencies:
     path: ../data/  
 
 dev_dependencies: 
-  dart_code_metrics: ^4.9.1    
+  dart_code_metrics: ^4.10.1   
   flutter_lints: ^1.0.4

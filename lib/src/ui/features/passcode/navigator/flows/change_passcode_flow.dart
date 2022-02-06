@@ -5,7 +5,7 @@ import '../../pages/create_passcode_page.dart';
 import '../../pages/enter_current_passcode_page.dart';
 import '../../pages/repeat_passcode_page.dart';
 
-List<MaterialPage> buildChangePasscodeFlow(PasscodeUseCase useCase) {
+List<MaterialPage> getChangePasscodeFlow(PasscodeUseCase useCase) {
   return [
     if (useCase == PasscodeUseCase.enterCurrentPasscode) const MaterialPage(child: EnterCurrentPasscodePage()),
     if (useCase == PasscodeUseCase.createPasscode) const MaterialPage(child: CreatePasscodePage()),

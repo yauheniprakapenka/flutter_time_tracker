@@ -17,21 +17,9 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
   final _passcodeLengthLimit = GetIt.I.get<IPasscodeConfig>().passcodeLength;
   final _passcodeFacade = PasscodeFacade();
 
-  PasscodeBloc()
-      : super(
-          const PasscodeState(
-            passcodeFlow: PasscodeFlow.createPasscode,
-            passcodeUseCase: PasscodeUseCase.createPasscode,
-
-            // passcodeFlow: PasscodeFlow.changePasscode,
-            // passcodeUseCase: PasscodeUseCase.enterCurrentPasscode,
-
-            // passcodeFlow: PasscodeFlow.loginWithPasscode,
-            // passcodeUseCase: PasscodeUseCase.enterCurrentPasscode,
-          ),
-        ) {
-          DataServiceLocator.instance.init();
-        }
+  PasscodeBloc(PasscodeFlow passcodeFlow) : super(passcodeFlow.get()) {
+    DataServiceLocator.instance.init();
+  }
 
   @override
   Stream<PasscodeState> mapEventToState(IPasscodeEvent event) async* {
@@ -74,12 +62,10 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
           await _makePauseWhenEnteringMaxPasscodeLength();
           if (_passcode.createdPasscode == _passcode.tempEnteredPasscode) {
             _passcodeFacade.event.add(Result(resultType: ResultType.success, description: PasscodeResult.passcodeMatches.getDescription()));
-            yield 
-              state.copyWith(passcodeResult: PasscodeResult.passcodeMatches);
+            yield state.copyWith(passcodeResult: PasscodeResult.passcodeMatches);
           } else {
-            yield  state.copyWith(passcodeResult: PasscodeResult.passcodeNotMatches);
+            yield state.copyWith(passcodeResult: PasscodeResult.passcodeNotMatches);
           }
-          
         }
         return;
       }
@@ -95,7 +81,7 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
             _passcodeFacade.event.add(Result(resultType: ResultType.success, description: PasscodeResult.passcodeMatches.getDescription()));
             yield state.copyWith(passcodeResult: PasscodeResult.passcodeMatches, passcodeUseCase: PasscodeUseCase.createPasscode);
           } else {
-             _passcodeFacade.event.add(Result(resultType: ResultType.error, description: PasscodeResult.passcodeNotMatches.getDescription()));
+            _passcodeFacade.event.add(Result(resultType: ResultType.error, description: PasscodeResult.passcodeNotMatches.getDescription()));
             yield state.copyWith(passcodeResult: PasscodeResult.passcodeNotMatches);
           }
         }
