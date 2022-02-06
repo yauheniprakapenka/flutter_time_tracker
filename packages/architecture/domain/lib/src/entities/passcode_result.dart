@@ -2,9 +2,9 @@ enum PasscodeResult {
   /// Entering passcode.
   passcodeEntring,
 
-  /// Entered passcode matches with the saved passcode.
-  passcodeMatches,
+  /// Success result. Entered passcode matches with the saved passcode.
+  matches,
 
-  /// Entered passcode not matches with the saved passcode.
-  passcodeNotMatches,
+  /// Error result. Entered passcode not matches with the saved passcode.
+  notMatches,
 }

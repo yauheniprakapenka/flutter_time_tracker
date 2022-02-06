@@ -44,11 +44,11 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
           await _makePauseWhenEnteringMaxPasscodeLength();
           final passcodeMatchesWithStorage = await _userPasscodeMatchesWithStorage(event.enteredPasscode);
           if (passcodeMatchesWithStorage) {
-            _passcodeFacade.event.add(Result(resultType: ResultType.success, description: PasscodeResult.passcodeMatches.getDescription()));
-            yield state.copyWith(passcodeResult: PasscodeResult.passcodeMatches);
+            _passcodeFacade.event.add(Result(passcodeResult: PasscodeResult.matches, description: PasscodeResult.matches.getDescription()));
+            yield state.copyWith(passcodeResult: PasscodeResult.matches);
           } else {
-            _passcodeFacade.event.add(Result(resultType: ResultType.error, description: PasscodeResult.passcodeNotMatches.getDescription()));
-            yield state.copyWith(passcodeResult: PasscodeResult.passcodeNotMatches);
+            _passcodeFacade.event.add(Result(passcodeResult: PasscodeResult.notMatches, description: PasscodeResult.notMatches.getDescription()));
+            yield state.copyWith(passcodeResult: PasscodeResult.notMatches);
           }
         }
         return;
@@ -61,10 +61,10 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
         if (enteredPasscodeLength == _passcodeLengthLimit) {
           await _makePauseWhenEnteringMaxPasscodeLength();
           if (_passcode.createdPasscode == _passcode.tempEnteredPasscode) {
-            _passcodeFacade.event.add(Result(resultType: ResultType.success, description: PasscodeResult.passcodeMatches.getDescription()));
-            yield state.copyWith(passcodeResult: PasscodeResult.passcodeMatches);
+            _passcodeFacade.event.add(Result(passcodeResult: PasscodeResult.matches, description: PasscodeResult.matches.getDescription()));
+            yield state.copyWith(passcodeResult: PasscodeResult.matches);
           } else {
-            yield state.copyWith(passcodeResult: PasscodeResult.passcodeNotMatches);
+            yield state.copyWith(passcodeResult: PasscodeResult.notMatches);
           }
         }
         return;
@@ -78,11 +78,11 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
           await _makePauseWhenEnteringMaxPasscodeLength();
           final passcodeMatchesWithStorage = await _userPasscodeMatchesWithStorage(event.enteredPasscode);
           if (passcodeMatchesWithStorage) {
-            _passcodeFacade.event.add(Result(resultType: ResultType.success, description: PasscodeResult.passcodeMatches.getDescription()));
-            yield state.copyWith(passcodeResult: PasscodeResult.passcodeMatches, passcodeUseCase: PasscodeUseCase.createPasscode);
+            _passcodeFacade.event.add(Result(passcodeResult: PasscodeResult.matches, description: PasscodeResult.matches.getDescription()));
+            yield state.copyWith(passcodeResult: PasscodeResult.matches, passcodeUseCase: PasscodeUseCase.createPasscode);
           } else {
-            _passcodeFacade.event.add(Result(resultType: ResultType.error, description: PasscodeResult.passcodeNotMatches.getDescription()));
-            yield state.copyWith(passcodeResult: PasscodeResult.passcodeNotMatches);
+            _passcodeFacade.event.add(Result(passcodeResult: PasscodeResult.notMatches, description: PasscodeResult.notMatches.getDescription()));
+            yield state.copyWith(passcodeResult: PasscodeResult.notMatches);
           }
         }
         return;

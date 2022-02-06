@@ -1,14 +1,11 @@
+import '../../domain.dart';
+
 class Result {
-  final ResultType resultType;
+  final PasscodeResult passcodeResult;
   final String description;
 
-  const Result({required this.resultType, required this.description});
+  const Result({required this.passcodeResult, required this.description});
 
   @override
-  String toString() => 'Result(resultType: $resultType, description: $description)';
-}
-
-enum ResultType {
-  success,
-  error,
+  String toString() => 'Result(passcodeResult: $passcodeResult, description: $description)';
 }

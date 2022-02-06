@@ -23,7 +23,11 @@ class NewApp extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PasscodeApp(passcodeFlow: PasscodeFlow.loginWithPasscode),
+              builder: (context) {
+                return PasscodeApp(
+                  passcodeFlow: PasscodeFlow.loginWithPasscode,
+                );
+              },
             ),
           );
         },

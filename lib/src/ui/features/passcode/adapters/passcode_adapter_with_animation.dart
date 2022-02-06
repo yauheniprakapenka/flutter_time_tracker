@@ -38,7 +38,7 @@ class _PasscodeAdapterWithAnimationState extends State<PasscodeAdapterWithAnimat
         return BlocBuilder<PasscodeBloc, PasscodeState>(
           builder: (context, passcodeState) {
             debugPrint(passcodeState.passcode.toString());
-            if (passcodeState.passcodeResult == PasscodeResult.passcodeNotMatches) {
+            if (passcodeState.passcodeResult == PasscodeResult.notMatches) {
               _makePasscodeNotMatchesAnimation().whenComplete(() {
                 context.read<NumberPanelBloc>().add(ClearNumberPanelStateEvent());
               });

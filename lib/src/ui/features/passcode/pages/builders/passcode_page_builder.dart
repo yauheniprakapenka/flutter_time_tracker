@@ -70,7 +70,7 @@ class _TaskTextView extends StatelessWidget {
   Widget build(context) {
     return BlocBuilder<PasscodeBloc, PasscodeState>(builder: (context, passcodeState) {
       final localization = UIServiceLocator.instance.get<ILocalization>();
-      return passcodeState.passcodeResult == PasscodeResult.passcodeNotMatches
+      return passcodeState.passcodeResult == PasscodeResult.notMatches
           ? TaskText(text: localization.passcodeEnteredIncorrectly, hasErrorStyle: true)
           : TaskText(text: taskText);
     });

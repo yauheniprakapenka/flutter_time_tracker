@@ -5,9 +5,9 @@ extension Description on PasscodeResult {
     switch (this) {
       case PasscodeResult.passcodeEntring:
         return 'Пользователь вводит ключ доступа';
-      case PasscodeResult.passcodeMatches:
+      case PasscodeResult.matches:
         return 'Ключ доступа совпадает';
-      case PasscodeResult.passcodeNotMatches:
+      case PasscodeResult.notMatches:
         return 'Ключ доступа не совпадает';
     }
   }
