@@ -11,6 +11,7 @@ import '../../ui/shared/theme/theme_data/app_theme_data.dart';
 import '../di/cancel_button_service_locator.dart';
 import '../di/color_service_locator.dart';
 import '../di/localization_service_locator.dart';
+import '../di/logo_service_locator.dart';
 
 class PasscodeApp extends StatefulWidget {
   final PasscodeFlow _passcodeFlow;
@@ -25,10 +26,12 @@ class PasscodeApp extends StatefulWidget {
     required GestureTapCallback onCancelPressed,
     required ILocalization localization,
     required IColor color,
+    Widget? logo,
   })  : _passcodeFlow = passcodeFlow,
         _onResult = onResult,
         _onCancelPressed = onCancelPressed,
         super(key: key) {
+    LogoServiceLocator.instance.register(logo);      
     LocalizationServiceLocator.instance.register(localization);
     ColorServiceLocator.instance.register(color);
     PasscodeConfigServiceLocator.instance.register(passcodeLength);

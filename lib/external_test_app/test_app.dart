@@ -1,5 +1,3 @@
-// TODO(e): Добавить отображение логотипа
-
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +24,8 @@ class TestApp extends StatelessWidget {
                     passcodeLength: 4,
                     localization: ShellLocalizationImpl(),
                     color: ShellColorImpl(),
+                    logo: Image.network(
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png'),
                     onResult: (result) {
                       debugPrint('Результ снаружи ${result.toString()}');
                     },

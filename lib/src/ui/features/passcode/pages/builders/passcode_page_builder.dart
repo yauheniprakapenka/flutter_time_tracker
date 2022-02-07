@@ -4,11 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
 import '../../../../../app/di/color_service_locator.dart';
+import '../../../../../app/di/logo_service_locator.dart';
 import '../../../../shared/localization/i_localization.dart';
 import '../../../../shared/theme/colors/number_panel_color_impl.dart';
 import '../../adapters/passcode_adapter.dart';
 import '../../adapters/passcode_adapter_with_animation.dart';
 import '../../widgets/delete_icon.dart';
+import '../../widgets/logo.dart';
 import '../../widgets/task_text.dart';
 import '../observers/cancel_button_observer.dart';
 
@@ -55,16 +57,20 @@ class PasscodePageBuilder extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 22),
+                    LogoServiceLocator.instance.get<Logo>(),
                     _TaskTextView(taskText: taskText),
                     const SizedBox(height: 22),
-                    passcodeAdapterWithAnimation ? const PasscodeAdapterWithAnimation() : const PasscodeAdapter(),
+                    passcodeAdapterWithAnimation
+                        ? const PasscodeAdapterWithAnimation()
+                        : const PasscodeAdapter(),
                     const SizedBox(height: 52),
                     NumberPanel(
-                      passcodeLength: ColorServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
+                      passcodeLength:
+                          ColorServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
                       deleteIcon: const DeleteIcon(),
                       colors: NumberPanelColorImpl(),
                     ),
+                    // SizedBox.expand(),
                   ],
                 ),
               ),
