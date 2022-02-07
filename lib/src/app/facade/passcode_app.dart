@@ -7,7 +7,6 @@ import '../../ui/features/passcode/navigator/passcode_flow_navigator.dart';
 import '../../ui/features/passcode/pages/observers/cancel_button_observer.dart';
 import '../../ui/shared/theme/theme_data/app_theme_data.dart';
 import '../di/cancel_button_service_locator.dart';
-import '../di/passcode_config_service_locator.dart';
 
 class PasscodeApp extends StatefulWidget {
   final PasscodeFlow _passcodeFlow;

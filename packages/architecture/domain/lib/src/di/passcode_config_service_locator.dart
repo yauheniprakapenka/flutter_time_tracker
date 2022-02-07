@@ -1,5 +1,6 @@
-import 'package:domain/domain.dart';
 import 'package:get_it/get_it.dart';
+
+import '../../domain.dart';
 
 class PasscodeConfigServiceLocator {
   static final instance = PasscodeConfigServiceLocator();
