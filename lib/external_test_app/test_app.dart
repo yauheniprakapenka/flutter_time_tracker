@@ -1,6 +1,5 @@
 // TODO(e): Добавить отображение логотипа
 // TODO(e): Добавить layout builder
-// TODO(e): В сценарии "Изменить ключ доступа" два раза получаем успешный результат так как в нем экран от сцераний войти по ключу доступа
 
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';

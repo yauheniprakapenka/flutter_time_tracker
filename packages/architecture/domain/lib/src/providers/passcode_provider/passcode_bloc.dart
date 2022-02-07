@@ -74,7 +74,6 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
           await _makePauseWhenEnteringMaxPasscodeLength();
           final passcodeMatchesWithStorage = await _userPasscodeMatchesWithStorage(event.enteredPasscode);
           if (passcodeMatchesWithStorage) {
-            _resultObserver.controller.add(Result(passcodeResult: PasscodeResult.matches, description: PasscodeResult.matches.getDescription()));
             yield state.copyWith(passcodeResult: PasscodeResult.matches, passcodeUseCase: PasscodeUseCase.createPasscode);
           } else {
             _resultObserver.controller.add(Result(passcodeResult: PasscodeResult.notMatches, description: PasscodeResult.notMatches.getDescription()));
