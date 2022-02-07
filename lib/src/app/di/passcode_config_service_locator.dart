@@ -1,8 +1,8 @@
 import 'package:domain/domain.dart';
 import 'package:get_it/get_it.dart';
 
-class PasscodeServiceLocator {
-  static final instance = PasscodeServiceLocator();
+class PasscodeConfigServiceLocator {
+  static final instance = PasscodeConfigServiceLocator();
   static final _getIt = GetIt.I;
 
   T get<T extends Object>() => _getIt.get<T>();

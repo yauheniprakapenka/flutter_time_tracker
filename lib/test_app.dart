@@ -1,6 +1,3 @@
-// TODO(e): удалить этот тестовый виджет
-
-// TODO(e): Сохранять в Flutter Storage
 // TODO(e): Передавать локализацию
 // TODO(e): Добавить отображение логотипа
 // TODO(e): Добавить layout builder
@@ -9,7 +6,7 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 
-import 'src/app/passcode_app.dart';
+import 'src/app/facade/passcode_app.dart';
 
 class TestApp extends StatelessWidget {
   const TestApp({Key? key}) : super(key: key);
@@ -18,25 +15,29 @@ class TestApp extends StatelessWidget {
   Widget build(context) {
     return Scaffold(
       body: Center(
-          child: TextButton(
-        child: const Text('Перейти'),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return PasscodeApp(
-                  passcodeFlow: PasscodeFlow.changePasscode,
-                  passcodeLength: 4,
-                  onCancelPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                );
-              },
-            ),
-          );
-        },
-      )),
+        child: TextButton(
+          child: const Text('Перейти'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return PasscodeApp(
+                    passcodeFlow: PasscodeFlow.changePasscode,
+                    passcodeLength: 4,
+                    onResult: (result) {
+                      debugPrint('Результа снаружи ${result.toString()}');
+                    },
+                    onCancelPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  );
+                },
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }
