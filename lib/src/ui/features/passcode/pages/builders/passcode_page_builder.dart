@@ -6,7 +6,7 @@ import 'package:number_panel/number_panel.dart';
 import '../../../../../app/di/app_color_service_locator.dart';
 import '../../../../shared/localization/i_localization.dart';
 import '../../../../shared/theme/colors/number_panel_color_impl.dart';
-import '../../../../shared/widgets/delete_icon.dart';
+import '../../widgets/delete_icon.dart';
 import '../../adapters/passcode_adapter.dart';
 import '../../adapters/passcode_adapter_with_animation.dart';
 import '../../widgets/task_text.dart';
