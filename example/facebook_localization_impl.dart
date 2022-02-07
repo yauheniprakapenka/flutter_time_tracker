@@ -1,6 +1,6 @@
-import '../src/ui/shared/localization/i_localization.dart';
+import 'package:passcode/src/ui/shared/localization/i_localization.dart';
 
-class ShellLocalizationImpl implements ILocalization {
+class FacebookLocalizationImpl implements ILocalization {
   @override
   String get createPasscode => 'Придумайте ключ доступа';
 

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:passcode/src/ui/shared/theme/colors/i_color.dart';
 
-import '../src/ui/shared/theme/colors/i_color.dart';
-
-class ShellColorImpl implements IColor {
+class FacebookColorImpl implements IColor {
   @override
   Color get primary => const Color(0xFFE5E5EA);
 

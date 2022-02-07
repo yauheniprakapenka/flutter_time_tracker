@@ -1,12 +1,12 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
+import 'package:passcode/passcode.dart';
 
-import '../src/app/facade/passcode_app.dart';
-import 'shell_color_impl.dart';
-import 'shell_localization_impl.dart';
+import 'facebook_color_impl.dart';
+import 'facebook_localization_impl.dart';
 
-class TestApp extends StatelessWidget {
-  const TestApp({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(context) {
@@ -22,8 +22,8 @@ class TestApp extends StatelessWidget {
                   return PasscodeApp(
                     passcodeFlow: PasscodeFlow.changePasscode,
                     passcodeLength: 4,
-                    localization: ShellLocalizationImpl(),
-                    color: ShellColorImpl(),
+                    localization: FacebookLocalizationImpl(),
+                    color: FacebookColorImpl(),
                     logo: Image.network(
                         'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png'),
                     onResult: (result) {
