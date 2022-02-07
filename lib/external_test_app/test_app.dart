@@ -6,6 +6,7 @@ import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 
 import '../src/app/facade/passcode_app.dart';
+import 'shell_color_impl.dart';
 import 'shell_localization_impl.dart';
 
 class TestApp extends StatelessWidget {
@@ -26,6 +27,7 @@ class TestApp extends StatelessWidget {
                     passcodeFlow: PasscodeFlow.changePasscode,
                     passcodeLength: 4,
                     localization: ShellLocalizationImpl(),
+                    color: ShellColorImpl(),
                     onResult: (result) {
                       debugPrint('Результ снаружи ${result.toString()}');
                     },

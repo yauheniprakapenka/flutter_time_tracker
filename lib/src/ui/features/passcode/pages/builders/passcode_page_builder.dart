@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
-import '../../../../../app/di/app_color_service_locator.dart';
+import '../../../../../app/di/color_service_locator.dart';
 import '../../../../shared/localization/i_localization.dart';
 import '../../../../shared/theme/colors/number_panel_color_impl.dart';
-import '../../widgets/delete_icon.dart';
 import '../../adapters/passcode_adapter.dart';
 import '../../adapters/passcode_adapter_with_animation.dart';
+import '../../widgets/delete_icon.dart';
 import '../../widgets/task_text.dart';
 import '../observers/cancel_button_observer.dart';
 
@@ -31,7 +31,7 @@ class PasscodePageBuilder extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final serviceLocator = AppColorServiceLocator.instance;
+    final serviceLocator = ColorServiceLocator.instance;
     final localization = serviceLocator.get<ILocalization>();
     return Scaffold(
       body: Column(
@@ -50,7 +50,7 @@ class PasscodePageBuilder extends StatelessWidget {
           passcodeAdapterWithAnimation ? const PasscodeAdapterWithAnimation() : const PasscodeAdapter(),
           const SizedBox(height: 52),
           NumberPanel(
-            passcodeLength: AppColorServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
+            passcodeLength: ColorServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
             deleteIcon: const DeleteIcon(),
             colors: NumberPanelColorImpl(),
           ),
@@ -60,7 +60,7 @@ class PasscodePageBuilder extends StatelessWidget {
   }
 
   void _onCancelButtonPressed() {
-    final _cancelButtonObserver = AppColorServiceLocator.instance.get<CancelButtonObserver>();
+    final _cancelButtonObserver = ColorServiceLocator.instance.get<CancelButtonObserver>();
     _cancelButtonObserver.controller.add('Нажата «Отмена» на экране: «$taskText»');
   }
 }
@@ -73,7 +73,7 @@ class _TaskTextView extends StatelessWidget {
   @override
   Widget build(context) {
     return BlocBuilder<PasscodeBloc, PasscodeState>(builder: (context, passcodeState) {
-      final localization = AppColorServiceLocator.instance.get<ILocalization>();
+      final localization = ColorServiceLocator.instance.get<ILocalization>();
       return passcodeState.passcodeResult == PasscodeResult.notMatches
           ? TaskText(text: localization.passcodeEnteredIncorrectly, hasErrorStyle: true)
           : TaskText(text: taskText);

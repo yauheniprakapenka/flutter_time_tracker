@@ -6,8 +6,10 @@ import 'package:number_panel/number_panel.dart';
 import '../../ui/features/passcode/navigator/passcode_flow_navigator.dart';
 import '../../ui/features/passcode/pages/observers/cancel_button_observer.dart';
 import '../../ui/shared/localization/i_localization.dart';
+import '../../ui/shared/theme/colors/i_color.dart';
 import '../../ui/shared/theme/theme_data/app_theme_data.dart';
 import '../di/cancel_button_service_locator.dart';
+import '../di/color_service_locator.dart';
 import '../di/localization_service_locator.dart';
 
 class PasscodeApp extends StatefulWidget {
@@ -22,11 +24,13 @@ class PasscodeApp extends StatefulWidget {
     required Function(Result result) onResult,
     required GestureTapCallback onCancelPressed,
     required ILocalization localization,
+    required IColor color,
   })  : _passcodeFlow = passcodeFlow,
         _onResult = onResult,
         _onCancelPressed = onCancelPressed,
         super(key: key) {
     LocalizationServiceLocator.instance.register(localization);
+    ColorServiceLocator.instance.register(color);
     PasscodeConfigServiceLocator.instance.register(passcodeLength);
   }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'i_app_color.dart';
+import '../src/ui/shared/theme/colors/i_color.dart';
 
-class ShellAppColorImpl implements IAppColor {
+class ShellColorImpl implements IColor {
   @override
   Color get primary => const Color(0xFFE5E5EA);
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class IAppColor {
+abstract class IColor {
   Color get background;
 
   Color get primary;

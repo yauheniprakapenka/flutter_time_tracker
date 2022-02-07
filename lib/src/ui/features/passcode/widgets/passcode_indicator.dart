@@ -1,8 +1,8 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../app/di/app_color_service_locator.dart';
-import '../../../shared/theme/colors/i_app_color.dart';
+import '../../../../app/di/color_service_locator.dart';
+import '../../../shared/theme/colors/i_color.dart';
 
 class PasscodeIndicator extends StatelessWidget {
   final int indicatorLength;
@@ -33,7 +33,7 @@ class PasscodeIndicator extends StatelessWidget {
   }
 
   Color _getColor(PasscodeResult passcodeResult, int index) {
-    final appColor = AppColorServiceLocator.instance.get<IAppColor>();
+    final appColor = ColorServiceLocator.instance.get<IColor>();
     if (activeIndicatorLength < (index + 1)) return appColor.primary;
     switch (passcodeResult) {
       case PasscodeResult.passcodeEntring:

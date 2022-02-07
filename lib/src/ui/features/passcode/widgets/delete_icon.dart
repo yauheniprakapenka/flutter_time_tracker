@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../app/di/app_color_service_locator.dart';
-import '../../../shared/theme/colors/i_app_color.dart';
+import '../../../../app/di/color_service_locator.dart';
+import '../../../shared/theme/colors/i_color.dart';
 
 class DeleteIcon extends StatelessWidget {
   static const _widthIcon = 46.0;
@@ -14,7 +14,7 @@ class DeleteIcon extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final appColor = AppColorServiceLocator.instance.get<IAppColor>();
+    final appColor = ColorServiceLocator.instance.get<IColor>();
     return Center(
       child: Stack(
         children: [

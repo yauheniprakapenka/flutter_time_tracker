@@ -9,6 +9,8 @@ class LocalizationServiceLocator {
   T get<T extends Object>() => _getIt.get<T>();
 
   void register(ILocalization localization) {
-    _getIt.registerLazySingleton<ILocalization>(() => localization);
+    if (!_getIt.isRegistered<ILocalization>()) {
+      _getIt.registerLazySingleton<ILocalization>(() => localization);
+    }
   }
 }
