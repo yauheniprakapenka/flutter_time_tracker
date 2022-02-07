@@ -1,5 +1,4 @@
 // TODO(e): Добавить отображение логотипа
-// TODO(e): Добавить layout builder
 
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';

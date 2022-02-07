@@ -16,11 +16,14 @@ class TaskText extends StatelessWidget {
   @override
   Widget build(context) {
     final appColor = ColorServiceLocator.instance.get<IColor>();
-    return Text(
-      text,
-      style: TextStyle(
-        fontSize: 21.0,
-        color: hasErrorStyle ? appColor.error : appColor.onPrimaryVariant,
+    return FittedBox(
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 21.0,
+          color: hasErrorStyle ? appColor.error : appColor.onPrimaryVariant,
+        ),
       ),
     );
   }

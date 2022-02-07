@@ -31,30 +31,46 @@ class PasscodePageBuilder extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final serviceLocator = ColorServiceLocator.instance;
-    final localization = serviceLocator.get<ILocalization>();
+    final localization = ColorServiceLocator.instance.get<ILocalization>();
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TextButton(
-              onPressed: _onCancelButtonPressed,
-              child: Text(localization.cancel),
-            ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: TextButton(
+                  onPressed: _onCancelButtonPressed,
+                  child: Text(
+                    localization.cancel,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 22),
+                    _TaskTextView(taskText: taskText),
+                    const SizedBox(height: 22),
+                    passcodeAdapterWithAnimation ? const PasscodeAdapterWithAnimation() : const PasscodeAdapter(),
+                    const SizedBox(height: 52),
+                    NumberPanel(
+                      passcodeLength: ColorServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
+                      deleteIcon: const DeleteIcon(),
+                      colors: NumberPanelColorImpl(),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 22),
-          _TaskTextView(taskText: taskText),
-          const SizedBox(height: 22),
-          passcodeAdapterWithAnimation ? const PasscodeAdapterWithAnimation() : const PasscodeAdapter(),
-          const SizedBox(height: 52),
-          NumberPanel(
-            passcodeLength: ColorServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
-            deleteIcon: const DeleteIcon(),
-            colors: NumberPanelColorImpl(),
-          ),
-        ],
+        ),
       ),
     );
   }
