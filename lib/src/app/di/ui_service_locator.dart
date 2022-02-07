@@ -11,7 +11,7 @@ class UIServiceLocator {
 
   T get<T extends Object>() => _getIt.get<T>();
 
-  void init() {
+  void register() {
     _getIt
       ..registerLazySingleton<IAppColor>(ShellAppColorImpl.new)
       ..registerLazySingleton<ILocalization>(ShellLocalizationImpl.new);

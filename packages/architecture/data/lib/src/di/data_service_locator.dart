@@ -10,11 +10,13 @@ class DataServiceLocator {
 
   T get<T extends Object>() => _getIt.get<T>();
 
-  void init() {
-    _getIt.registerLazySingleton<IPasscodeRepository>(
-      () => PasscodeRepositoryImpl(
-        localDataSource: PasscodeSecureStorageDataSource(),
-      ),
-    );
+  void register() {
+    if (!_getIt.isRegistered<IPasscodeRepository>()) {
+      _getIt.registerLazySingleton<IPasscodeRepository>(
+        () => PasscodeRepositoryImpl(
+          localDataSource: PasscodeSecureStorageDataSource(),
+        ),
+      );
+    }
   }
 }

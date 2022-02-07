@@ -13,7 +13,7 @@ class PasscodeFlowNavigator extends StatelessWidget {
   @override
   Widget build(context) {
     return BlocBuilder<PasscodeBloc, PasscodeState>(
-      builder: (context, state) {
+      builder: (_, state) {
         return Navigator(
           transitionDelegate: NoAnimationTransitionDelegate(),
           pages: [

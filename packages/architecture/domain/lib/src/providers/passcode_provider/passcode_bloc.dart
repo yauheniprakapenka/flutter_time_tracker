@@ -18,7 +18,7 @@ class PasscodeBloc extends Bloc<IPasscodeEvent, PasscodeState> {
   final _passcodeFacade = PasscodeFacade();
 
   PasscodeBloc(PasscodeFlow passcodeFlow) : super(passcodeFlow.get()) {
-    DataServiceLocator.instance.init();
+    DataServiceLocator.instance.register();
   }
 
   @override

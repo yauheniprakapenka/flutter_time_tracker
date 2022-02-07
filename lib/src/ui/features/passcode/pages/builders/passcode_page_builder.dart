@@ -10,6 +10,7 @@ import '../../../../shared/widgets/delete_icon.dart';
 import '../../adapters/passcode_adapter.dart';
 import '../../adapters/passcode_adapter_with_animation.dart';
 import '../../widgets/task_text.dart';
+import '../observers/cancel_button_observer.dart';
 
 class PasscodePageBuilder extends StatelessWidget {
   /// Пример:
@@ -29,7 +30,7 @@ class PasscodePageBuilder extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     final serviceLocator = UIServiceLocator.instance;
     final localization = serviceLocator.get<ILocalization>();
     return Scaffold(
@@ -39,10 +40,8 @@ class PasscodePageBuilder extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: TextButton(
+              onPressed: _onCancelButtonPressed,
               child: Text(localization.cancel),
-              onPressed: () {
-                throw UnimplementedError();
-              },
             ),
           ),
           const SizedBox(height: 22),
@@ -58,6 +57,11 @@ class PasscodePageBuilder extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _onCancelButtonPressed() {
+    final _cancelButtonObserver = UIServiceLocator.instance.get<CancelButtonObserver>();
+    _cancelButtonObserver.controller.add('Нажата «Отмена» на экране: «$taskText»');
   }
 }
 
