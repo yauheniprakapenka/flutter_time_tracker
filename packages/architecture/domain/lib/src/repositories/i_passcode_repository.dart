@@ -1,7 +1,6 @@
 abstract class IPasscodeRepository {
   /// Return `true` if user entered passcode matches with the saved passcode in storage.
-  Future<bool> passcodeHasMatch(String userPasscode);
+  Future<bool> passcodeMatch(String userPasscode);
 
-  /// Return `true` if passcode exist in storage.
-  Future<bool> isPasscodeExist();
+  Future<void> createPasscode(String userPasscode);
 }

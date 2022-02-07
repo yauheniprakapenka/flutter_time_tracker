@@ -5,5 +5,5 @@ import 'test_app.dart';
 
 void main() {
   UIServiceLocator.instance.register();
-  runApp(const MaterialApp(home: NewApp()));
+  runApp(const MaterialApp(home: TestApp()));
 }

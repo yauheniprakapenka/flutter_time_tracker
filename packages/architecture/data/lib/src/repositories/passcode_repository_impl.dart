@@ -10,12 +10,12 @@ class PasscodeRepositoryImpl implements IPasscodeRepository {
   }) : _localDataSource = localDataSource;
 
   @override
-  Future<bool> passcodeHasMatch(String userPasscode) async {
-    return _localDataSource.passcodeHasMatch(userPasscode);
+  Future<bool> passcodeMatch(String userPasscode) async {
+    return _localDataSource.passcodeMatch(userPasscode);
   }
 
   @override
-  Future<bool> isPasscodeExist() async {
-    return _localDataSource.isPasscodeExist();
+  Future<void> createPasscode(String userPasscode)async {
+    await _localDataSource.createPasscode(userPasscode);
   }
 }

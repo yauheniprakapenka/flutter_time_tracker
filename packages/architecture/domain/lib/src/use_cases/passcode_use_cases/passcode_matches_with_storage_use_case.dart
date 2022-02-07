@@ -8,6 +8,6 @@ class PasscodeMatchesWithStorageUseCase {
       : _passcodeRepository = passcodeRepository;
 
   Future<bool> call(String userPasscode) async {
-    return _passcodeRepository.passcodeHasMatch(userPasscode);
+    return _passcodeRepository.passcodeMatch(userPasscode);
   }
 }

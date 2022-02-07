@@ -4,7 +4,7 @@ import 'dart:async';
 /// ключа доступа, созданных с `PasscodePageBuilder`.
 class CancelButtonObserver {
   /// Переданный строковый параметр ни на что не влияет.
-  /// Передается в качестве информации.
+  /// Можно передавать какую-то информацию, например, на каком экране нажато.
   final controller = StreamController<String>();
 
   void dispose() {

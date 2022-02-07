@@ -1,12 +1,18 @@
+// TODO(e): удалить этот тестовый виджет
 
-// TODO(e): тестовый виджет
+// TODO(e): Сохранять в Flutter Storage
+// TODO(e): Передавать локализацию
+// TODO(e): Добавить отображение логотипа
+// TODO(e): Добавить layout builder
+// TODO(e): В сценарии "Изменить ключ доступа" два раза получаем успешный результат так как в нем экран от сцераний войти по ключу доступа
+
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 
 import 'src/app/passcode_app.dart';
 
-class NewApp extends StatelessWidget {
-  const NewApp({Key? key}) : super(key: key);
+class TestApp extends StatelessWidget {
+  const TestApp({Key? key}) : super(key: key);
 
   @override
   Widget build(context) {
@@ -17,15 +23,16 @@ class NewApp extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) {
-              return PasscodeApp(
+            MaterialPageRoute(
+              builder: (context) {
+                return PasscodeApp(
                   passcodeFlow: PasscodeFlow.changePasscode,
                   passcodeLength: 4,
                   onCancelPressed: () {
                     Navigator.of(context).pop();
                   },
                 );
-            },
+              },
             ),
           );
         },
