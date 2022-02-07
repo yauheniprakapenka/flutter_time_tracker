@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'src/app/di/ui_service_locator.dart';
-import 'test_app.dart';
+import 'external_test_app/test_app.dart';
+import 'src/app/di/app_color_service_locator.dart';
 
 void main() {
-  UIServiceLocator.instance.register();
+  AppColorServiceLocator.instance.register();
   runApp(const MaterialApp(home: TestApp()));
 }

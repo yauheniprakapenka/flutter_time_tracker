@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/di/ui_service_locator.dart';
+import '../../../../app/di/app_color_service_locator.dart';
 import '../colors/i_app_color.dart';
 
 class AppThemeData {
-  final _appColor = UIServiceLocator.instance.get<IAppColor>();
+  final _appColor = AppColorServiceLocator.instance.get<IAppColor>();
 
   ThemeData call() {
     return ThemeData(

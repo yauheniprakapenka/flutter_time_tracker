@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_panel/number_panel.dart';
 
-import '../../../../app/di/ui_service_locator.dart';
+import '../../../../app/di/app_color_service_locator.dart';
 import '../decorators/animation_width_decorator.dart';
 import '../widgets/passcode_indicator.dart';
 
@@ -48,7 +48,7 @@ class _PasscodeAdapterWithAnimationState extends State<PasscodeAdapterWithAnimat
               leftWidthCntrl: _leftWidthCntrl,
               rightWidthCntrl: _rightWidthCntrl,
               child: PasscodeIndicator(
-                indicatorLength: UIServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
+                indicatorLength: AppColorServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
                 activeIndicatorLength: passcodeState.passcode.tempEnteredPasscode.length,
                 passcodeResult: passcodeState.passcodeResult,
               ),

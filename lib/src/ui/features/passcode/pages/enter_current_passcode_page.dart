@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/di/ui_service_locator.dart';
+import '../../../../app/di/app_color_service_locator.dart';
 import '../../../shared/localization/i_localization.dart';
 import 'builders/passcode_page_builder.dart';
 
@@ -9,7 +9,7 @@ class EnterCurrentPasscodePage extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final localization = UIServiceLocator.instance.get<ILocalization>();
+    final localization = AppColorServiceLocator.instance.get<ILocalization>();
     return PasscodePageBuilder(
       taskText: localization.enterCurrentPasscode,
       passcodeAdapterWithAnimation: true,

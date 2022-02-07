@@ -9,8 +9,8 @@ class PasscodeSecureStorageDataSource implements IPasscodeLocalDataSource {
   @override
   Future<bool> passcodeMatch(String userPasscode) async {
     final storagePasscode = await _storage.read(key: _passcodeKey);
-    print('Storage Pasccode: $storagePasscode');
-    print('User Pasccode: $userPasscode');
+    // print('Storage Pasccode: $storagePasscode');
+    // print('User Pasccode: $userPasscode');
     return userPasscode == storagePasscode ? true : false;
   }
 
