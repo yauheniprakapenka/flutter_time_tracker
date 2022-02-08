@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:passcode_navigator/passcode.dart';
+import 'package:passcode_navigator/passcode_navigator.dart';
 import 'package:passcode_navigator/src/domain/domain.dart';
 
 import 'facebook_color_impl.dart';
