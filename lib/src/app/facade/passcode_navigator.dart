@@ -18,6 +18,7 @@ class PasscodeNavigator extends StatefulWidget {
   })  : _onResult = onResult,
         _onCancelPressed = onCancelPressed,
         super(key: key) {
+    DeleteIconServiceLocator.instance.register(passcodeNavigatorConfig.deleteIcon);
     LogoServiceLocator.instance.register(passcodeNavigatorConfig.logo);
     LocalizationServiceLocator.instance.register(passcodeNavigatorConfig.localization);
     ColorServiceLocator.instance.register(passcodeNavigatorConfig.color);

@@ -18,7 +18,7 @@ dependencies:
 flutter:
   uses-material-design: true
   assets:
-  - assets/icons/delete/
+  - assets/icons/
 
 dev_dependencies: 
   dart_code_metrics: ^4.10.1

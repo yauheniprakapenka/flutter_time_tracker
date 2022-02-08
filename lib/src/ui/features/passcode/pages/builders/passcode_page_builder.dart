@@ -66,7 +66,7 @@ class PasscodePageBuilder extends StatelessWidget {
                     NumberPanel(
                       passcodeLength:
                           ColorServiceLocator.instance.get<PasscodeConfig>().passcodeLength,
-                      deleteIcon: const DeleteIcon(),
+                      deleteIcon: DeleteIconServiceLocator.instance.get<DeleteIcon>(),
                       colors: NumberPanelColorImpl(),
                     ),
                     // SizedBox.expand(),

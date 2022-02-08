@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../domain/domain.dart';
@@ -10,12 +9,14 @@ class PasscodeNavigatorConfig {
   final ILocalization localization;
   final IColor color;
   final Widget? logo;
+  final Widget deleteIcon;
 
   const PasscodeNavigatorConfig({
     required this.passcodeFlow,
     required this.passcodeLength,
     required this.localization,
     required this.color,
+    required this.deleteIcon,
     this.logo,
   });
 
@@ -25,6 +26,7 @@ class PasscodeNavigatorConfig {
     ILocalization? localization,
     IColor? color,
     Widget? logo,
+    Widget? deleteIcon,
   }) {
     return PasscodeNavigatorConfig(
       passcodeFlow: passcodeFlow ?? this.passcodeFlow,
@@ -32,6 +34,7 @@ class PasscodeNavigatorConfig {
       localization: localization ?? this.localization,
       color: color ?? this.color,
       logo: logo ?? this.logo,
+      deleteIcon: deleteIcon ?? this.deleteIcon,
     );
   }
 }
