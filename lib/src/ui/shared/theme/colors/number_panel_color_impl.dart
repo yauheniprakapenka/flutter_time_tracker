@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:number_panel/number_panel.dart';
 
-import '../../../../app/di/color_service_locator.dart';
+import '../../../di/di.dart';
+import '../../../features/number_panel/app/theme/i_number_panel_color.dart';
 import 'i_color.dart';
 
 class NumberPanelColorImpl implements INumberPanelColor {

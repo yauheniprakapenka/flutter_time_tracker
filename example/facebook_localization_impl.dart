@@ -1,4 +1,4 @@
-import 'package:passcode/src/ui/shared/localization/i_localization.dart';
+import 'package:passcode_navigator/src/ui/shared/localization/i_localization.dart';
 
 class FacebookLocalizationImpl implements ILocalization {
   @override

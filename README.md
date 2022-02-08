@@ -12,7 +12,12 @@
 ### Ввод ключа доступа:
 ---
 
-При вводе неверного ключа доступа отображается анимация ошибки
+- При вводе неверного ключа доступа отображается анимация ошибки
+- Примеры ответов:
+
+Result(passcodeResult: PasscodeResult.matches, description: Ключ доступа совпадает)
+
+Result(passcodeResult: PasscodeResult.notMatches, description: Ключ доступа не совпадает)
 
 ### Flow
 ---

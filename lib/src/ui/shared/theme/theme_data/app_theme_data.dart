@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/di/color_service_locator.dart';
+import '../../../di/di.dart';
 import '../colors/i_color.dart';
 
 class AppThemeData {

@@ -1,9 +1,9 @@
-import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:number_panel/number_panel.dart';
 
-import '../../../../app/di/color_service_locator.dart';
+import '../../../../domain/domain.dart';
+import '../../../di/di.dart';
+import '../../number_panel/number_panel.dart';
 import '../widgets/passcode_indicator.dart';
 
 class PasscodeAdapter extends StatelessWidget {

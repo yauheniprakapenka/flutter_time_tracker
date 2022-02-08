@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../app/di/color_service_locator.dart';
+import '../../../di/di.dart';
 import '../../../shared/theme/colors/i_color.dart';
 
 class DeleteIcon extends StatelessWidget {

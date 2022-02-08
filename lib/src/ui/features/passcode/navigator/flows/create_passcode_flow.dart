@@ -1,6 +1,6 @@
-import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../domain/entities/entities.dart';
 import '../../pages/create_passcode_page.dart';
 import '../../pages/repeat_passcode_page.dart';
 

@@ -113,20 +113,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.1"
-  data:
-    dependency: transitive
-    description:
-      path: "packages/architecture/data"
-      relative: true
-    source: path
-    version: "1.0.0+1"
-  domain:
-    dependency: "direct main"
-    description:
-      path: "packages/architecture/domain"
-      relative: true
-    source: path
-    version: "1.0.0+1"
   file:
     dependency: transitive
     description:
@@ -140,7 +126,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_bloc:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
@@ -263,13 +249,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  number_panel:
-    dependency: "direct main"
-    description:
-      path: "packages/features/password_panels/number_panel"
-      relative: true
-    source: path
-    version: "1.0.0+1"
   package_config:
     dependency: transitive
     description:

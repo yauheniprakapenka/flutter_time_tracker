@@ -1,12 +1,11 @@
-import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:number_panel/number_panel.dart';
 
-import '../../../../../app/di/color_service_locator.dart';
-import '../../../../../app/di/logo_service_locator.dart';
+import '../../../../../domain/domain.dart';
+import '../../../../di/di.dart';
 import '../../../../shared/localization/i_localization.dart';
 import '../../../../shared/theme/colors/number_panel_color_impl.dart';
+import '../../../number_panel/number_panel.dart';
 import '../../adapters/passcode_adapter.dart';
 import '../../adapters/passcode_adapter_with_animation.dart';
 import '../../widgets/delete_icon.dart';

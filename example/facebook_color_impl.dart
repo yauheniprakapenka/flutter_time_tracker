@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:passcode/src/ui/shared/theme/colors/i_color.dart';
+import 'package:passcode_navigator/src/ui/shared/theme/colors/i_color.dart';
 
 class FacebookColorImpl implements IColor {
   @override

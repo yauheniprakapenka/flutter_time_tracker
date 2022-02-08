@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/di/color_service_locator.dart';
+import '../../../di/di.dart';
 import '../../../shared/localization/i_localization.dart';
 import 'builders/passcode_page_builder.dart';
 

@@ -1,6 +1,6 @@
-import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
-import 'package:passcode/passcode.dart';
+import 'package:passcode_navigator/passcode.dart';
+import 'package:passcode_navigator/src/domain/domain.dart';
 
 import 'facebook_color_impl.dart';
 import 'facebook_localization_impl.dart';
@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return PasscodeApp(
+                  return PasscodeNavigator(
                     passcodeFlow: PasscodeFlow.changePasscode,
                     passcodeLength: 4,
                     localization: FacebookLocalizationImpl(),

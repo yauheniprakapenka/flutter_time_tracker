@@ -1,4 +1,4 @@
-name: passcode
+name: passcode_navigator
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -13,11 +13,7 @@ dependencies:
   get_it: ^7.2.0
   flutter_svg: ^1.0.3
   flutter_secure_storage: ^5.0.2
-
-  domain:
-    path: packages/architecture/domain/
-  number_panel:
-    path: packages/features/password_panels/number_panel/
+  flutter_bloc: ^7.3.3
 
 flutter:
   uses-material-design: true
