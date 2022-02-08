@@ -1,31 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../app/config/passcode_navigator_config.dart';
 import '../../domain/domain.dart';
 import '../../ui/ui.dart';
 
 class PasscodeNavigator extends StatefulWidget {
-  final PasscodeFlow _passcodeFlow;
+  final PasscodeNavigatorConfig passcodeNavigatorConfig;
   final Function(Result result) _onResult;
   final GestureTapCallback _onCancelPressed;
 
   PasscodeNavigator({
     Key? key,
-    required PasscodeFlow passcodeFlow,
-    required int passcodeLength,
+    required this.passcodeNavigatorConfig,
     required Function(Result result) onResult,
     required GestureTapCallback onCancelPressed,
-    required ILocalization localization,
-    required IColor color,
-    Widget? logo,
-  })  : _passcodeFlow = passcodeFlow,
-        _onResult = onResult,
+  })  : _onResult = onResult,
         _onCancelPressed = onCancelPressed,
         super(key: key) {
-    LogoServiceLocator.instance.register(logo);      
-    LocalizationServiceLocator.instance.register(localization);
-    ColorServiceLocator.instance.register(color);
-    PasscodeConfigServiceLocator.instance.register(passcodeLength);
+    LogoServiceLocator.instance.register(passcodeNavigatorConfig.logo);
+    LocalizationServiceLocator.instance.register(passcodeNavigatorConfig.localization);
+    ColorServiceLocator.instance.register(passcodeNavigatorConfig.color);
+    PasscodeConfigServiceLocator.instance.register(passcodeNavigatorConfig.passcodeLength);
   }
 
   @override
@@ -60,7 +56,8 @@ class _PasscodeNavigatorState extends State<PasscodeNavigator> {
   Widget build(context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<PasscodeBloc>(create: (_) => PasscodeBloc(widget._passcodeFlow)),
+        BlocProvider<PasscodeBloc>(
+            create: (_) => PasscodeBloc(widget.passcodeNavigatorConfig.passcodeFlow)),
         BlocProvider<NumberPanelBloc>(create: (_) => NumberPanelBloc()),
       ],
       child: MaterialApp(
