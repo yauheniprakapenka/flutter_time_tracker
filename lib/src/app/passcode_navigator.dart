@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../app/config/passcode_navigator_config.dart';
-import '../../domain/domain.dart';
-import '../../ui/ui.dart';
+import 'passcode_navigator_configurator.dart';
+import '../domain/domain.dart';
+import '../ui/ui.dart';
 
 class PasscodeNavigator extends StatefulWidget {
-  final PasscodeNavigatorConfig passcodeNavigatorConfig;
+  final PasscodeNavigatorConfigurator passcodeNavigatorConfig;
   final Function(Result result) _onResult;
   final GestureTapCallback _onCancelPressed;
 

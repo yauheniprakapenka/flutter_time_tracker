@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/domain.dart';
-import '../../ui/ui.dart';
+import '../domain/domain.dart';
+import '../ui/ui.dart';
 
-class PasscodeNavigatorConfig {
+class PasscodeNavigatorConfigurator {
   final PasscodeFlow passcodeFlow;
   final int passcodeLength;
   final ILocalization localization;
@@ -11,7 +11,7 @@ class PasscodeNavigatorConfig {
   final Widget? logo;
   final Widget deleteIcon;
 
-  const PasscodeNavigatorConfig({
+  const PasscodeNavigatorConfigurator({
     required this.passcodeFlow,
     required this.passcodeLength,
     required this.localization,
@@ -20,7 +20,7 @@ class PasscodeNavigatorConfig {
     this.logo,
   });
 
-  PasscodeNavigatorConfig copyWith({
+  PasscodeNavigatorConfigurator copyWith({
     PasscodeFlow? passcodeFlow,
     int? passcodeLength,
     ILocalization? localization,
@@ -28,7 +28,7 @@ class PasscodeNavigatorConfig {
     Widget? logo,
     Widget? deleteIcon,
   }) {
-    return PasscodeNavigatorConfig(
+    return PasscodeNavigatorConfigurator(
       passcodeFlow: passcodeFlow ?? this.passcodeFlow,
       passcodeLength: passcodeLength ?? this.passcodeLength,
       localization: localization ?? this.localization,

@@ -5,7 +5,7 @@ import 'delete_icon.dart';
 import 'facebook_color_impl.dart';
 import 'facebook_localization_impl.dart';
 
-final passcodeNavigatorConfig = PasscodeNavigatorConfig(
+final passcodeNavigatorConfig = PasscodeNavigatorConfigurator(
   passcodeFlow: PasscodeFlow.changePasscode,
   passcodeLength: 4,
   localization: FacebookLocalizationImpl(),
