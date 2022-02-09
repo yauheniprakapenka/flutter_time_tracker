@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'passcode_navigator_configurator.dart';
 import '../domain/domain.dart';
 import '../ui/ui.dart';
+import 'passcode_navigator_configurator.dart';
 
 class PasscodeNavigator extends StatefulWidget {
   final PasscodeNavigatorConfigurator passcodeNavigatorConfig;
@@ -30,6 +30,7 @@ class PasscodeNavigator extends StatefulWidget {
 }
 
 class _PasscodeNavigatorState extends State<PasscodeNavigator> {
+  late final CancelButtonObserver cancelButtonObserver;
   @override
   void initState() {
     super.initState();
@@ -48,7 +49,8 @@ class _PasscodeNavigatorState extends State<PasscodeNavigator> {
 
   @override
   void dispose() {
-    CancelButtonServiceLocator.instance.dispose();
+    cancelButtonObserver.dispose();
+    CancelButtonServiceLocator.instance.unregister();
     ResultServiceLocator.instance.dispose();
     super.dispose();
   }

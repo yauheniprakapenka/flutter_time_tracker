@@ -14,8 +14,7 @@ class CancelButtonServiceLocator {
     }
   }
 
-  void dispose() {
-    _getIt.get<CancelButtonObserver>().dispose();
+  void unregister() {
     _getIt.unregister<CancelButtonObserver>();
   }
 }
