@@ -1,0 +1,12 @@
+name: data
+
+environment:
+  sdk: ">=2.17.1 <3.0.0"
+
+dependencies:
+  core:
+    path: ../core
+  domain:
+    path: ../domain
+  
+  dio: ^4.0.4  

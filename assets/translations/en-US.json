@@ -1,0 +1,18 @@
+{
+    "timeTrackingBoardFeature": {
+        "work": "Work",
+        "play": "Play",
+        "study": "Study",
+        "exercise": "Exercise",
+        "social": "Social",
+        "selfCare": "Self Care",
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly",
+        "reportFor": "Report for",
+        "hours": "hrs",
+        "lastWeek": "Last Week",
+        "lastMonth": "Last Month",
+        "yesterday": "Yesterday"
+    }
+}
